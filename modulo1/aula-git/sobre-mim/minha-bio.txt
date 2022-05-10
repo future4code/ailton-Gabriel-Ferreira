@@ -1,2 +1,6 @@
+<<<<<<< HEAD
+Oi me chamo Gabriel Theodoro Ferreira tenho 21 anos moro em Queimados-RJ e sou apaixonado por tecnologia, Sempre cresci tendo contato com jogos e computador e sempre me interessei por esse universo e espero ao longo do curso me desenvolver e fazer a diferença.
+=======
 Me chamo Gabriel Theodoro Ferreira tenho 21 anos, Moro em Queimados-RJ
 Quero me tornar um Dev pois conheci mutas pessoas que trabalham na area e conversei bastante e eles de certa forma me conveteram pra esse mundo, Sempre gostei muito de técnologia e espero um dia contibuir pra esse mundo!
+>>>>>>> 4ac8e4c08ef403065b48a9dcba13f848d0ac62f0
