@@ -17,17 +17,18 @@ console.log('A diferença de idade entre você e seu amigo é', idadeUsuario - i
 // 2:
 
 let numeroPar = +prompt('Insira um numero par')
-let resto = numeroPar % 2
-console.log (resto)
+let resto1 = numeroPar % 2
+console.log (resto1)
 
 // Caso o usuario insira um numero impar o resultado será 1
 
 //3:
 
-let idade = prompt('Qual sua idade')
+let idade = +prompt('Qual sua idade')
+let anoBissexto = idade/4
 let idadeMeses = idade*12
-let idadeDias = idade*365
-let idadeHoras = idade*365*24
+let idadeDias = parseInt(idade*365 + anoBissexto)
+let idadeHoras = (idadeDias*24) + (anoBissexto*24)
 console.log(`Sua idade em meses é ${idadeMeses}, Sua idade em dias é ${idadeDias}, Sua idade em horas é ${idadeHoras}`)
 
 //4:
