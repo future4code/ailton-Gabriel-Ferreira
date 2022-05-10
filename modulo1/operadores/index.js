@@ -5,6 +5,8 @@
 
 // 3 - Para conseguir somar os valores deverá transformar os resultados do tipo string em numero usando Number(primeiroNumero)+Number(segundoNumero)
 
+/*
+
 //Exercicios de codigo
 // 1:
 
@@ -42,4 +44,23 @@ let restoInverso = numero2 % numero1
 console.log(`${numero1} é divisivel por ${numero2}? ${resto === 0}`)
 console.log(`${numero2} é divisivel por ${numero1}? ${restoInverso === 0}`)
 
-//Oi
+*/
+/*
+let kelvin = (77-32)*(5/9)+273.15
+let faren = (80)*(9/5)+32
+let kelvin2 = 30 + 273.15
+let faren2 = (30)*(9/5) + 32
+console.log(`${kelvin}°K`)
+console.log(`${faren}°F`)
+console.log(`${faren2}°F`)
+console.log(`${kelvin2}°K`)
+
+let qHora = (+prompt('Quilowatt-hora usada'))
+console.log('Você usou', qHora * 0.05 )
+console.log('Com 15% de desconto o valor fica', (qHora*0.05)*0.85)
+*/
+
+// let kg = 
+// screen
+// debugger
+// SVGAElement
