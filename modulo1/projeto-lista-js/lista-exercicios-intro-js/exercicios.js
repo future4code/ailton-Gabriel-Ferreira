@@ -109,17 +109,24 @@ return string1.toLowerCase() === string2.toLowerCase()
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
-
+let anoAtual = Number(prompt('Ano atual'))
+let idade = anoAtual - Number(prompt('Ano de nascimento'))
+let tempoIdentidade = anoAtual - Number(prompt('Ano de emissão da identidade'))
+console.log( (idade <= 20 && tempoIdentidade >= 5) || (idade > 20 && idade <= 50 && tempoIdentidade >= 10) || (idade > 50 && tempoIdentidade >= 15))
 }
+
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
-
+return ano % 400 === 0 || ano % 4 === 0 && ano % 100 !== 0
 }
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
-
+let maioridade = prompt('Você é maior de idade?')
+let ensino = prompt('Você terminou o ensino médio')
+let horario = prompt('Você possui disponibilidade exclusiva durante os horários do curso?')
+console.log(maioridade === "sim" && ensino === "sim" && horario === "sim")
 }
