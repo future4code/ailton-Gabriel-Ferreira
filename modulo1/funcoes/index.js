@@ -14,7 +14,7 @@
 
 // const apresentação = () => console.log('Eu sou Gabriel, tenho 21 anos, moro no Rio de Janeiro e sou estudante.')
 
-// b.
+// // b.
 // let infos = prompt('Digite seu Nome, idade, endereço e profissao')
 // let infosSep = infos.split(' ')
 // const apresentacaoParametros = (nome, idade, endereço, profissao) => console.log(`Eu sou ${nome}, tenho ${idade}, moro em ${endereço} e sou ${profissao}`)
@@ -27,35 +27,17 @@
 
 // b.
 
-// function comparar(a, b){
-//     let comparacao = a >= b
-//     return comparacao
-// }
-
-// let val1 = (prompt('Primeiro valor'))
-// let val2 = (prompt('Segundo valor'))
-
-// console.log(comparar(val1, val2))
+// const comparar = (a, b) => console.log(a>=b)
 
 // c.
 
-// function parImpar (num1) {
-//     let resto = num1 % 2
-//     let resultado = resto === 0
-//     return resultado
-// }
-// console.log(parImpar(Number(prompt('Digite um numero'))))
+// const parImpar = (num1) => console.log(num1 = num1 % 2 === 0)
+// parImpar(prompt('Insira um valor'))
 
 // d.
 
-// const texto = (texto) => {
-// let texto1 = prompt('Digite aqui seu texto')
-// let texto1Min = texto1.toLowerCase()
-// let tamanho = texto1Min.length
-// console.log(tamanho)
-// console.log(texto1Min)
-// }
-// console.log(texto())
+// const texto = (texto) => console.log(texto.toUpperCase(), texto.length)
+// texto(prompt('Digite seu texto'))
 
 // 3 -
 
@@ -76,9 +58,7 @@
 // 1 -
 
 // const func1 = (val1) => console.log(val1)
-
 // const func2 = (num1, num2) => {
-
 // let resultado = num1+num2 
 // func1(resultado)
 // }
