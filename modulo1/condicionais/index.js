@@ -106,7 +106,7 @@ let arrayDt = [null, 660, 440, 330, 170]
 let arrayFi = [null, 1980, 1320, 880, 330]
 const ingresso = () => {
     let valorIngresso
-    if (ticket.tipo === "DO"){ ticket.tipo = "Doméstico"
+    if (ticket.tipo === "DO"){ ticket.tipo = "Nacional", ticket.simbolo = "R$"
         if (ticket.etapa === "SF"){ ticket.etapa = "Semifinal"
             valorIngresso = arraySf[ticket.categoria]
         }
@@ -117,7 +117,7 @@ const ingresso = () => {
             valorIngresso = arrayFi[ticket.categoria]
         }
     }
-    else { ticket.tipo = "Internacional"
+    else { ticket.tipo = "Internacional", ticket.simbolo = "U$"
         if (ticket.etapa === "SF"){ ticket.etapa = "Semifinal"
             valorIngresso = arraySf[ticket.categoria]
         }
@@ -136,7 +136,7 @@ Etapa de jogo: ${ticket.etapa}
 Categoria: ${ticket.categoria}
 Quantidade de ingressos: ${ticket.quantidade}
 ---Valores---
-O valor por ingresso: ${parseInt(valorIngresso)}
-O valor final: ${parseInt(valorfinal)}`)
+O valor por ingresso: ${ticket.simbolo}${parseInt(valorIngresso)}
+O valor final: ${ticket.simbolo}${parseInt(valorfinal)}`)
 }
 ingresso()
