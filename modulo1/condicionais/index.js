@@ -101,113 +101,35 @@ const criadorIngresso = () => {
     }
 }
 criadorIngresso()
-
+let arraySf = [null, 1320, 880, 550, 220]
+let arrayDt = [null, 660, 440, 330, 170]
+let arrayFi = [null, 1980, 1320, 880, 330]
 const ingresso = () => {
-    
-    switch (ticket.tipo){
-        case "DO": ticket.tipo = "Domestico"
-            switch (ticket.etapa){
-                case "SF": ticket.etapa = "Semi-final"
-                    switch (ticket.categoria){
-                    case 4:
-                        valorIngresso = 220
-                        break
-                    case 3:
-                        valorIngresso = 550
-                        break
-                    case 2:
-                        valorIngresso = 880
-                        break
-                    case 1:
-                        valorIngresso = 1320
-                        break
-                    }
-
-                case "DT": ticket.etapa = "Disputa de terceiro colocado"
-                    switch (ticket.categoria){
-                    case 4:
-                        valorIngresso = 170
-                        break
-                    case 3:
-                        valorIngresso = 330
-                        break
-                    case 2:
-                        valorIngresso = 440
-                        break
-                    case 1:
-                        valorIngresso = 660
-                        break
-                    }
-                case "FI": ticket.etapa = "Final"
-                    switch (ticket.categoria){
-                    case 4:
-                        valorIngresso = 330
-                        break
-                    case 3:
-                        valorIngresso = 880
-                        break
-                    case 2:
-                        valorIngresso = 1320
-                        break
-                    case 1:
-                        valorIngresso = 1980
-                        break
-                    
-                }                
-            }
-        case "IN": ticket.tipo = "Internacional"
-                switch (ticket.etapa){
-                    case "SF": ticket.etapa = "Semi-Final"
-                        switch (ticket.categoria){
-                        case 4:
-                            valorIngresso = 220*4.1
-                            break
-                        case 3:
-                            valorIngresso = 550*4.1
-                            break
-                        case 2:
-                            valorIngresso = 880*4.1
-                            break
-                        case 1:
-                            valorIngresso = 1320*4.1
-                            break
-                        }
-    
-                    case "DT": ticket.etapa = "Disputa de terceiro lugar"
-                        switch (ticket.categoria){
-                        case 4:
-                            valorIngresso = 170*4.1
-                            break
-                        case 3:
-                            valorIngresso = 330*4.1
-                            break
-                        case 2:
-                            valorIngresso = 440*4.1
-                            break
-                        case 1:
-                            valorIngresso = 660*4.1
-                            break
-                        }
-                    case "FI": ticket.etapa = "Final"
-                    switch (ticket.categoria){
-                        case 4:
-                            valorIngresso = 330*4.1
-                            break
-                        case 3:
-                            valorIngresso = 880*4.1
-                            break
-                        case 2:
-                            valorIngresso = 1320*4.1
-                            break
-                        case 1:
-                            valorIngresso = 1980*4.1
-                            break
-                        
-                    }
-                }
+    let valorIngresso
+    if (ticket.tipo === "DO"){ ticket.tipo = "Doméstico"
+        if (ticket.etapa === "SF"){ ticket.etapa = "Semifinal"
+            valorIngresso = arraySf[ticket.categoria]
+        }
+        else if (ticket.etapa === "DT"){ ticket.etapa = "Disputa de terceiro lugar"
+            valorIngresso = arrayDt [ticket.categoria]
+        }
+        else if (ticket.etapa === "FI"){ ticket.etapa = "Final"
+            valorIngresso = arrayFi[ticket.categoria]
+        }
     }
-    let valorfinal = valorIngresso * ticket.quantidade
-    console.log(`---Informações---
+    else { ticket.tipo = "Internacional"
+        if (ticket.etapa === "SF"){ ticket.etapa = "Semifinal"
+            valorIngresso = arraySf[ticket.categoria]
+        }
+        else if (ticket.etapa === "DT"){ ticket.etapa = "Disputa de terceiro lugar" 
+            valorIngresso = arraySf[ticket.categoria]
+        }
+        else if (ticket.etapa === "FI"){ ticket.etapa = "Final"
+            valorIngresso = arraySf[ticket.categoria]
+        }
+    }
+let valorfinal = valorIngresso * ticket.quantidade
+console.log(`---Informações---
 Nome do cliente: ${ticket.nomeIngresso}
 Tipo de jogo: ${ticket.tipo}
 Etapa de jogo: ${ticket.etapa}
