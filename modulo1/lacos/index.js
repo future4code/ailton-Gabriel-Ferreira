@@ -56,15 +56,17 @@
 
 // d.
 
+// let arrayD = []
 // for (let numero of arrayNumero){
 //     let indice = arrayNumero.indexOf(numero)
-//     console.log(`O elemendo do indice ${indice} é ${numero}`)
+//     arrayD.push(`O elemendo do indice ${indice} é ${numero}`)
 // }
+// console.log(arrayD)
 
 // e.
 
-// let maior = 0
-// let menor = 1000000
+// let maior = (1/0) * (-1)
+// let menor = 1/0
 
 // for (let numero of arrayNumero){
 //     if(maior<numero){
@@ -119,38 +121,39 @@
 // }
 
 // 2
+// let testeee = console.log('Oi')
+// let numeroTentativas = 0
+// const jogo = () => {
+//     let jogar = confirm('Deseja iniciar o jogo?')
+//     if (jogar === true) {
 
-let numeroTentativas = 0
-const jogo = () => {
-    let jogar = confirm('Deseja iniciar o jogo?')
-    if (jogar === true) {
+//         let primeiroNum = parseInt(Math.random()*100)
+//         let segundoNum = primeiroNum+1
 
-        let primeiroNum = parseInt(Math.random()*100)
-        let segundoNum = primeiroNum+1
+//         while (primeiroNum !== segundoNum){
 
-        while (primeiroNum !== segundoNum){
-
-            segundoNum = Number(prompt('Tente advinhar o numero'))
+//             segundoNum = Math.floor(Math.random()*100)
             
-            if (segundoNum>primeiroNum) {
-                console.log(`O numero que você chutou foi ${segundoNum}
-O numero escolhido por mim foi menor`)
-            numeroTentativas += 1
-            }
-            else if (primeiroNum === segundoNum){
-                console.log('Acertou!!')
-            }
-            else {
-                console.log(`O numero que você chutou foi ${segundoNum}
-O numero escolhido por mim foi maior`)
-            numeroTentativas += 1  
-            }
-        }
-    }
-    else {
-        alert('Jogo encerrado!!')
-    }
-    console.log(`Acertou
-O numero de tentativas foi: ${numeroTentativas}`)
-}
-jogo()
+//             if (segundoNum>primeiroNum) {
+//                 console.log(`O numero que você chutou foi ${segundoNum}
+// O numero escolhido por mim foi menor`)
+//             numeroTentativas += 1
+//             }
+//             else if (primeiroNum === segundoNum){
+//                 console.log('Acertou!!')
+//             }
+//             else {
+//                 console.log(`O numero que você chutou foi ${segundoNum}
+// O numero escolhido por mim foi maior`)
+//             numeroTentativas += 1  
+//             }
+//         }
+//     }
+//     else {
+//         alert('Jogo encerrado!!')
+//     }
+//     console.log(`Acertou
+// O numero de tentativas foi: ${numeroTentativas}`)
+// }
+// jogo()
+
