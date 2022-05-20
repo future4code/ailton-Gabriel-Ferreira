@@ -15,14 +15,14 @@
 
 // 1 
 
-// const pets = [
-//     { nome: "Lupin", raca: "Salsicha"},
-//     { nome: "Polly", raca: "Lhasa Apso"},
-//     { nome: "Madame", raca: "Poodle"},
-//     { nome: "Quentinho", raca: "Salsicha"},
-//     { nome: "Fluffy", raca: "Poodle"},
-//     { nome: "Caramelo", raca: "Vira-lata"},
-//  ]
+const pets = [
+    { nome: "Lupin", raca: "Salsicha"},
+    { nome: "Polly", raca: "Lhasa Apso"},
+    { nome: "Madame", raca: "Poodle"},
+    { nome: "Quentinho", raca: "Salsicha"},
+    { nome: "Fluffy", raca: "Poodle"},
+    { nome: "Caramelo", raca: "Vira-lata"},
+ ]
 
  // a. 
  
@@ -41,13 +41,8 @@
 
 // c.
 
-// let armazenaMensagens = []
-// const mensagemPoodles = pets.filter((bixos) => {
-//     return bixos.raca === "Poodle"
-// }).map((bixo) => {
-//     armazenaMensagens.push(`Você ganhou um cupom de desconto de 10% para tosar o/a ${bixo.nome}!`)
-// })
-// console.log(armazenaMensagens)
+const mensagemPoodles = pets.filter((bixos) => { return bixos.raca === "Poodle"}).map((bixo) => {return `Você ganhou um cupom de desconto de 10% para tosar o/a ${bixo.nome}!`})
+console.log(mensagemPoodles)
 
 // 2
 
@@ -96,13 +91,13 @@
 
 // e.
 
-// let frasesYpe = []
-// const compreHoje = objetosYpeCompre = produtos.filter((ypezada)=>{
-//     return ypezada.nome.includes("Ypê")
-// }).map((frasis)=>{
-//     frasesYpe.push(`Compre ${frasis.nome} por R$ ${frasis.preco}`)
-// })
-// console.log(frasesYpe)
+let frasesYpe = []
+const compreHoje = objetosYpeCompre = produtos.filter((ypezada)=>{
+    return ypezada.nome.includes("Ypê")
+}).map((frasis)=>{
+    frasesYpe.push(`Compre ${frasis.nome} por R$ ${frasis.preco}`)
+})
+console.log(frasesYpe)
 
 // =======================================================================
 
