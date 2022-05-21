@@ -17,6 +17,11 @@ let textoMapeadoPc
 let textoMapeadoUsuario
 let baralho
 let cartaEscondida
+let iniciaJogo = true
+
+// Placar
+let placarJogador = 0
+let placarPc = 0
 
 // Dados computador
 
@@ -45,20 +50,28 @@ let podeComprarPc = false
       // Declaro as mãos como array vazio
 
       deckComputador = []
-      deckJogador = []    
-
-      cartaEscondida = baralho.pop() // Defino a carta escondida  
-      deckComputador.push(cartaEscondida) // Passo para o computador
-      somaComputador += pegarValor(cartaEscondida) // Pego o valor da carta escondida e somo ao valor do computador
-      console.log(cartaEscondida)
-
+      deckJogador = []          
+      
+      while (iniciaJogo === true) {
 
       console.log ('Bem vindo ao jogo de Blackjack') // Pergunto se deseja iniciar o jogo
-      let querJogar = confirm('Deseja iniciar uma nova rodada?')       
+      let querJogar = confirm(`Deseja iniciar uma nova rodada?
+Placar atual Computador ${placarPc} a ${placarJogador} Jogador`)  
 
       if(querJogar === true) { // Caso a resposta seja positiva inicio o if
+
+         somaJogador = 0
+         somaComputador = 0
+         podeComprar = true
+         deckComputador = []
+         deckJogador = []
+
+         cartaEscondida = baralho.pop() // Defino a carta escondida  
+         deckComputador.push(cartaEscondida) // Passo para o computador
+         somaComputador += pegarValor(cartaEscondida) // Pego o valor da carta escondida e somo ao valor do computador
+         console.log(`A carta escondida é ${cartaEscondida}`)
       
-         // Crio uma estrutura de repetição para sortear 2 cartas para cada deck
+         // Sorteio a carta revelada do computador e as cartas do jogador
     
          sorteiaCartasJogado(2)
          sorteiaCartasPc(1)
@@ -73,14 +86,13 @@ let podeComprarPc = false
 
          perguntaDesejaComprarMais() // Pergunto se o jogador deseja comprar mais cartas
          pcCompraMais() // Após o jogador comprar o computador pode comprar
-
-         console.log(asesComputador)
-         console.log(asesJogador)
-
-         comparativo(somaJogador, somaComputador) // Vejo quem venceu
+         comparativo() // Vejo quem venceu
+         iniciaJogo = true
       }
       else {
          console.log('O jogo acabou')
+         iniciaJogo = false
+      }
       }
       }
 
@@ -112,14 +124,18 @@ function embaralhar () {
 
 function pegarValor(carta){
    let dados = carta.split("")
-   let realValue = dados[0]
-   if (isNaN(realValue)) {
-      if (realValue == "A") {
+   let valor = dados[0]
+
+   if (isNaN(valor)) {
+      if (valor == "A") {
          return 11
       }
       return 10
    }
-   return parseInt(realValue)
+   else if (valor == 1) {
+      return 10
+   }
+   return(parseInt(valor))
 }
 
 // Funcao que checa se a carta é As
@@ -141,7 +157,9 @@ function sorteiaCartasJogado (numeroDeVez) {
    for (let i = 0; i<numeroDeVez; i++){
       let cartaTirada = baralho.pop()
       deckJogador.push(cartaTirada)
-      somaJogador += pegarValor(cartaTirada)      
+      somaJogador += pegarValor(cartaTirada)
+      console.log(`testeee aqui ${pegarValor(cartaTirada)}`)
+      console.log('Test', deckJogador)
       asesJogador += checarAses(cartaTirada)
       console.log(`Peguei ${cartaTirada} para o deck Jogado e somei para ${somaJogador}`)
       }      
@@ -161,18 +179,23 @@ function sorteiaCartasPc (numeroDeVez) {
 
 function comparativo () {
      if ((somaJogador === 21 && somaComputador !== 21 || somaJogador < 21 && somaComputador > 21 || somaJogador < 21 && somaComputador < somaJogador)){
-         alert(`Suas cartas são ${deckJogador}.
+        placarJogador += 1
+        alert(`Suas cartas são ${deckJogador}.
 Sua pontuação é ${somaJogador}
 As cartas do computador são ${deckComputador}. 
 A pontuação do computador é ${somaComputador}
-Você venceu!!`)
+Você venceu!!
+O placar é Computado: ${placarPc} Jogador: ${placarJogador}`)
+console.log(placarJogador, placarPc)
    }
       else if (somaComputador > somaJogador || somaJogador > 21 && somaComputador < 21) {
+      placarPc += 1
       alert(`Suas cartas são ${deckJogador}. 
 Sua pontuação é ${somaJogador}
 As cartas do computador são ${deckComputador}. 
 A pontuação do computador é ${somaComputador}
-O computador venceu!`)
+O computador venceu!
+O placar é Computado: ${placarPc} Jogador: ${placarJogador}`)
    }
    else if ((somaComputador === somaJogador || somaComputador && somaJogador > 21)) {
       alert(`Suas cartas são ${deckJogador}. 
@@ -181,7 +204,6 @@ As cartas do computador são ${deckComputador}.
 A pontuação do computador é ${somaComputador}
 Empate`)
    }
-   console.log(somaJogador, somaComputador)  
 }
 
 // Função que pergunta se o usuario deseja comprar mais
@@ -211,7 +233,7 @@ function pcCompraMais () {
    while (podeComprarPc === true){
 
       sorteiaCartasPc(1)
-      if (somaComputador === 21) {
+      if (somaComputador >= 17) {
          podeComprarPc = false
       }
       else if (somaComputador > somaJogador){
@@ -224,3 +246,13 @@ function pcCompraMais () {
 }
 
 jogo()
+
+// while (iniciaJogo == true) {
+//    if (confirm('Deseja iniciar uma nova rodada?')) {
+//       jogo()
+//    }
+//    else {
+//       alert (`Jogo encerrado! Placar Computador ${placarPc} a ${placarJogador} Jogador`)
+//       iniciaJogo = false
+//    }
+// }
