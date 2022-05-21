@@ -11,129 +11,175 @@
  * 
  */
 
-
+let arrayTexto
 let qualPegou
+let textoMapeadoPc
+let textoMapeadoUsuario
+let baralho
+let cartaEscondida
+
+// Dados computador
 
 let somaComputador = 0
 let deckComputador
+let asesComputador = 0
 
-let deckJogador
+// Dados jogador
+
 let somaJogador = 0
+let deckJogador
+let asesJogador = 0
 
 let desejaComprar
 let somatorioTotal
 
 let podeComprar = true
 let podeComprarPc = false
-    
+
+
+   fazerBaralho() // Monto o baralho 
+   embaralhar() // Embaralho   
+
    function jogo () {
-      console.log ('Bem vindo ao jogo de Blackjack')
-      let querJogar = confirm('Deseja iniciar uma nova rodada?')
-       // Caso a resposta seja positiva inicio o if
-      if(querJogar === true) {
-          // Declaro os decks como array vazio
-    
-         deckComputador = []
-         deckJogador = []
-          
+
+      // Declaro as mãos como array vazio
+
+      deckComputador = []
+      deckJogador = []    
+
+      cartaEscondida = baralho.pop() // Defino a carta escondida  
+      deckComputador.push(cartaEscondida) // Passo para o computador
+      somaComputador += pegarValor(cartaEscondida) // Pego o valor da carta escondida e somo ao valor do computador
+      console.log(cartaEscondida)
+
+
+      console.log ('Bem vindo ao jogo de Blackjack') // Pergunto se deseja iniciar o jogo
+      let querJogar = confirm('Deseja iniciar uma nova rodada?')       
+
+      if(querJogar === true) { // Caso a resposta seja positiva inicio o if
+      
          // Crio uma estrutura de repetição para sortear 2 cartas para cada deck
     
-         sorteiaCartas(deckComputador, 2)
-         sorteiaCartas(deckJogador, 2)
-         checaAses()
-
-         somatorioTotalJogador()
+         sorteiaCartasJogado(2)
+         sorteiaCartasPc(1)
+        
+         // somatorioTotalJogador() // Somo o valor da mão do jogador para saber se ele ja tem 21 pontos
 
          if (somaJogador === 21) {
             podeComprar = false
-         }  
-
-         // Imprimo no console os valores das mãos
+         }           
     
-         imprimeValorInicial()
+         imprimeValorInicial() // Imprimo no console os valores das mãos     
 
-         // Somo a pontuação
+         perguntaDesejaComprarMais() // Pergunto se o jogador deseja comprar mais cartas
+         pcCompraMais() // Após o jogador comprar o computador pode comprar
 
-         somatorioTotalJogador()
-         somatorioTotalComputador()
+         console.log(asesComputador)
+         console.log(asesJogador)
 
-         // Pergunto se o jogador deseja comprar mais cartas
-
-         perguntaDesejaComprarMais()
-
-         // Após o jogador comprar o computador pode comprar
-
-         pcCompraMais()
-
-         comparativo(somaJogador, somaComputador)
+         comparativo(somaJogador, somaComputador) // Vejo quem venceu
       }
       else {
          console.log('O jogo acabou')
       }
       }
 
-   function checaAses (jogador, computador) {
-      while ((deckComputador[0].texto.includes("A") && deckComputador[1].texto.includes("A")) || (deckJogador[0].texto.includes("A") && deckJogador[1].texto.includes("A")))
-      {
-         console.log('Mulligan)')
-         for(let i=0; i<2; i++){
-            deckJogador.pop()                  
-         }                 
-         for(let i=0; i<2; i++){
-            deckComputador.pop()
-         }
-         sorteiaCartas(deckComputador, 2)
-         sorteiaCartas(deckJogador, 2)
-         }
-         }  
+// Funcao que cria o baralho
 
+function fazerBaralho () {
+   let valores = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+   let naipes = ["♦️", "♥️", "♣️", "♠️"]
+   baralho = [] 
 
-// Funcao que imprime o valor inicial
+   for (let i = 0; i<naipes.length; i++){
+      for (let j = 0; j<valores.length; j++)
+      baralho.push(valores[j] + naipes[i])
+   }
+}
+
+// Funcao que embaralha
+
+function embaralhar () {
+   for (let i=0; i < baralho.length; i++){
+      let j = Math.floor(Math.random() * baralho.length)
+      let trocar = baralho[i]
+      baralho [i] = baralho[j]
+      baralho[j] = trocar
+   }
+}
+
+// Funcao que pega o valor
+
+function pegarValor(carta){
+   let dados = carta.split("")
+   let realValue = dados[0]
+   if (isNaN(realValue)) {
+      if (realValue == "A") {
+         return 11
+      }
+      return 10
+   }
+   return parseInt(realValue)
+}
+
+// Funcao que checa se a carta é As
+
+function checarAses (carta) {
+   if (carta.includes("A")) {
+      return 1
+   }
+   return 0
+}
 
 function imprimeValorInicial () {
-   console.log(`A carta revelada do computador é: ${deckComputador[0].texto}`)
-   console.log(deckComputador)
-   console.log(`Usuario - cartas: ${deckJogador[0].texto} ${deckJogador[1].texto} - pontuação ${deckJogador[0].valor + deckJogador[1].valor}`)
+   alert (`Suas cartas são ${deckJogador[0]} ${deckJogador[1]}. A carta revelada do computador é ${deckComputador[1]}`)
 }
 
 // Funcao de comprar cartas
 
-function sorteiaCartas (qualDeck, numeroDeVez) {
+function sorteiaCartasJogado (numeroDeVez) {
    for (let i = 0; i<numeroDeVez; i++){
-      qualDeck.push(comprarCarta())
-      }
+      let cartaTirada = baralho.pop()
+      deckJogador.push(cartaTirada)
+      somaJogador += pegarValor(cartaTirada)      
+      asesJogador += checarAses(cartaTirada)
+      console.log(`Peguei ${cartaTirada} para o deck Jogado e somei para ${somaJogador}`)
+      }      
 }
 
-// Soma o valor do jogadore
-
-function somatorioTotalJogador () {
-   somaJogador = 0
-   for (let i = 0; i < deckJogador.length; i++){
-      somaJogador = somaJogador + deckJogador[i].valor
-   }
-}
-
-// Soma o valor do computador
-
-function somatorioTotalComputador () {
-   somaComputador = 0
-   for (let i = 0; i < deckComputador.length; i++) {
-      somaComputador = somaComputador + deckComputador[i].valor
-   }
+function sorteiaCartasPc (numeroDeVez) {
+   for (let i = 0; i<numeroDeVez; i++){
+      let cartaTirada = baralho.pop()
+      deckComputador.push(cartaTirada)
+      somaComputador += pegarValor(cartaTirada)
+      asesComputador += checarAses(cartaTirada)
+      console.log(`Peguei ${cartaTirada} para o deck PC e somei para ${somaComputador}`)
+      }      
 }
 
 // Função que compara
 
-function comparativo (jogado, computado) {
-
-   if ((somaJogador === 21 && somaComputador !== 21 || somaJogador < 21 && somaComputador > 21 || somaJogador < 21 && somaComputador < somaJogador)){
-      console.log('O usuario venceu!')
+function comparativo () {
+     if ((somaJogador === 21 && somaComputador !== 21 || somaJogador < 21 && somaComputador > 21 || somaJogador < 21 && somaComputador < somaJogador)){
+         alert(`Suas cartas são ${deckJogador}.
+Sua pontuação é ${somaJogador}
+As cartas do computador são ${deckComputador}. 
+A pontuação do computador é ${somaComputador}
+Você venceu!!`)
    }
       else if (somaComputador > somaJogador || somaJogador > 21 && somaComputador < 21) {
-   console.log('O computador venceu!')
+      alert(`Suas cartas são ${deckJogador}. 
+Sua pontuação é ${somaJogador}
+As cartas do computador são ${deckComputador}. 
+A pontuação do computador é ${somaComputador}
+O computador venceu!`)
    }
    else if ((somaComputador === somaJogador || somaComputador && somaJogador > 21)) {
-      console.log('Empate!')
+      alert(`Suas cartas são ${deckJogador}. 
+Sua pontuação é ${somaJogador}
+As cartas do computador são ${deckComputador}. 
+A pontuação do computador é ${somaComputador}
+Empate`)
    }
    console.log(somaJogador, somaComputador)  
 }
@@ -143,17 +189,16 @@ function comparativo (jogado, computado) {
 function perguntaDesejaComprarMais () {
 
    while (podeComprar === true) {
-      if (confirm('Deseja comprar mais cartas?')) {
-         sorteiaCartas(deckJogador, 1)
-         console.log(`Comprou ${deckJogador[deckJogador.length-1].texto}`)
-         somatorioTotalJogador()
+      if (confirm(`Suas cartas são ${deckJogador}. A carta revelada do computador é ${deckComputador[1]}
+Deseja comprar mais uma carta?`)) {
+
+         sorteiaCartasJogado(1)
          if (somaJogador >= 21) {
             podeComprar = false
          }
       } else {
          podeComprar = false
-      }
-      
+      }      
    }
 }
 
@@ -165,10 +210,7 @@ function pcCompraMais () {
    }
    while (podeComprarPc === true){
 
-      sorteiaCartas(deckComputador, 1)
-      console.log(`O computador comprou ${deckComputador[deckComputador.length-1].texto}`)
-      somatorioTotalComputador()
-
+      sorteiaCartasPc(1)
       if (somaComputador === 21) {
          podeComprarPc = false
       }
@@ -182,10 +224,3 @@ function pcCompraMais () {
 }
 
 jogo()
-
-// function somatorio (qualDeck) {
-//    somatorioTotal = qualDeck.map((valores) => {
-//       return valores.valor
-//    })
-//    for (let i)
-// }
