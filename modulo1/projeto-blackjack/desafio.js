@@ -36,7 +36,7 @@ let podeComprarPc = false // Enquanto essa variavel for true o computador pode c
 
       alert('Bem vindo ao jogo de Blackjack') // Pergunto se deseja iniciar o jogo
       let querJogar = confirm(`Deseja iniciar uma nova rodada?
-Placar atual Computador ${placarPc} a ${placarJogador} Jogador`)  
+Placar atual: Computador ${placarPc} a ${placarJogador} Jogador`)  
 
       if(querJogar === true) { // Caso a resposta seja positiva inicio o if
 
@@ -177,7 +177,7 @@ Sua pontuação é ${somaJogador}
 As cartas do computador são ${deckComputador}. 
 A pontuação do computador é ${somaComputador}
 Você venceu!!
-O placar é Computado: ${placarPc} Jogador: ${placarJogador}`)
+O placar é: Computador ${placarPc} a ${placarJogador} Jogador`)
    }
       else if (somaComputador > somaJogador || somaJogador > 21 && somaComputador < 21) {
       placarPc += 1
@@ -186,14 +186,15 @@ Sua pontuação é ${somaJogador}
 As cartas do computador são ${deckComputador}. 
 A pontuação do computador é ${somaComputador}
 O computador venceu!
-O placar é Computado: ${placarPc} Jogador: ${placarJogador}`)
+O placar é: Computador ${placarPc} a ${placarJogador} Jogador`)
    }
    else if ((somaComputador === somaJogador || somaComputador && somaJogador > 21)) {
       alert(`Suas cartas são ${deckJogador}. 
 Sua pontuação é ${somaJogador}
 As cartas do computador são ${deckComputador}. 
 A pontuação do computador é ${somaComputador}
-Empate`)
+Empate
+O Placar é: Computador ${placarPc} a ${placarJogador} Jogador`)
    }
 }
 
@@ -230,7 +231,7 @@ function pcCompraMais () {
 
       alert(`O computador comprou ${deckComputador[deckComputador.length-1]}
 As cartas do computador são ${deckComputador} valor: ${somaComputador}
-Suas cartas são ${deckJogador} valor: ${somaJogador}`)
+Suas cartas são ${deckJogador} o valor das suas cartas é: ${somaJogador}`)
       if (somaComputador >= 17) {
          podeComprarPc = false
       }
