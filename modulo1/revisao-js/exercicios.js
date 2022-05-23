@@ -98,7 +98,7 @@ function retornaChamadaDeFilme(filme) {
 function retornaPessoaAnonimizada(pessoa) {
     let novoObj = {
         ...pessoa,
-        nome: ANÔNIMO
+        nome: "ANÔNIMO",
     }
     return novoObj
    
@@ -106,7 +106,14 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
-   
+    let pessoasValidasAge = pessoas.filter((item)=>{
+        return item.idade > 14 && item.idade < 60
+    })
+    pessoasValidasTrue = pessoasValidasAge.filter((item)=>{
+        return item.altura > 1.5        
+    })
+    
+    return pessoasValidasTrue
 }
 
 // EXERCÍCIO 13B
