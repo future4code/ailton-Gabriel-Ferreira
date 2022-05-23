@@ -70,12 +70,22 @@ function retornaNPrimeirosPares(n) {
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    if (ladoA === ladoB && ladoA === ladoC) {
+        return "Equilátero"
+    }    
+    else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
+        return "Isósceles"
+    }
+    else {
+        return "Escaleno"
+    }
 }
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-  
+    array.sort(function (a,b) {return b-a})  
+    let novoArray = [array[1], array[array.length-2]]
+    return novoArray
 }
 
 // EXERCÍCIO 11
