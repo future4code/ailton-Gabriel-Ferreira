@@ -19,7 +19,7 @@ function retornaArrayOrdenado(array) {
 }
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-    const novoArray = array.filter(item=> item % 2 === 0) 
+    const novoArray = array.filter(item => item % 2 === 0) 
     return novoArray
 }
 
@@ -31,7 +31,7 @@ function retornaNumerosParesElevadosADois(array) {
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-    let soma = 0
+    let soma = -1/0
     for (let i=0; i<array.length; i++) {
         if (array[i]>soma){
             soma = array[i]
@@ -126,15 +126,46 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
+    let soma = 0
+    let debito = 0
+    const arrayDeContas = contas.map((item) =>{
+        return item.compras
+    })
+    for (let i=0; i<arrayDeContas.length; i++) {        
+        for (let j=0; j<arrayDeContas[i].length; j++) {
+            soma += arrayDeContas[i][j]             
+        }      
+        arrayDeContas[i].push(soma)
+        soma = 0        
+    }    
+    for (let i=0; i < contas.length; i++) {
+        debito = contas[i].compras.pop()        
+        contas[i].saldoTotal -= debito        
+        contas[i].compras = []
 
+        //contas[i].saldoTotal -= contas[i].compras[compras.length-1] // [100, 200, 300, parara]
+    }    
+    return contas
 }
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+    consultas.sort(function(a,b) {
+        return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0
+    })
+    return consultas  
 }
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-   
+
+    const sortear = (a,b) => b[1] - a[1]
+
+    for (let i=0; i<consultas.length; i++){
+        consultas[i].dataDaConsulta = consultas[i].dataDaConsulta.split("/")                
+    }
+    const sorteado = consultas.sort((a,b) => a[1] - b[1])
+    consultas.sort(sortear)
+    console.log(consultas)
+    return consultas
 }
