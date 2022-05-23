@@ -22,12 +22,11 @@ let asesJogador = 0 // Define o valor de ases
 let podeComprar = true // Enquanto essa variavel for verdadeira o jogador pode comprar
 let podeComprarPc = false // Enquanto essa variavel for true o computador pode comprar
 
-   fazerBaralho() // Monto o baralho 
-   embaralhar() // Embaralho   
+ 
 
    function jogo () {
 
-      // Declaro as mãos como array vazio
+            // Declaro as mãos como array vazio
 
       deckComputador = []
       deckJogador = []          
@@ -42,11 +41,18 @@ Placar atual: Computador ${placarPc} a ${placarJogador} Jogador`)
 
          // Zero as pontuação de soma e esvazio a mão dos jogadores. mantendo só o placar
 
+         asesComputador = 0
+         asesJogador = 0
          somaJogador = 0
          somaComputador = 0
          podeComprar = true
          deckComputador = []
          deckJogador = []
+
+         // Refaço o baralho
+
+         fazerBaralho() // Monto o baralho 
+         embaralhar() // Embaralho  
 
          // Após isso defino a carta escondida do computador
          
@@ -73,7 +79,8 @@ Placar atual: Computador ${placarPc} a ${placarJogador} Jogador`)
          perguntaDesejaComprarMais() // Pergunto se o jogador deseja comprar mais cartas
          pcCompraMais() // Após o jogador comprar o computador pode comprar
          comparativo() // Vejo quem venceu
-
+         console.log(baralho)
+         
          iniciaJogo = true
       }
       else {
@@ -109,10 +116,9 @@ function embaralhar () {
 
 // Funcao que pega o valor
 
-function pegarValor(carta){
+function pegarValor(carta) {
    let dados = carta.split("")
    let valor = dados[0]
-
    if (isNaN(valor)) {
       if (valor == "A") {
          return 11
@@ -152,7 +158,7 @@ function sorteiaCartasJogado (numeroDeVez) {
       let cartaTirada = baralho.pop()
       deckJogador.push(cartaTirada)
       somaJogador += pegarValor(cartaTirada)
-      asesJogador += checarAses(cartaTirada)
+      asesJogador += checarAses(cartaTirada)      
       }      
 }
 
@@ -200,8 +206,7 @@ O Placar é: Computador ${placarPc} a ${placarJogador} Jogador`)
 
 // Função que pergunta se o usuario deseja comprar mais
 
-function perguntaDesejaComprarMais () {
-
+function perguntaDesejaComprarMais () {    
    while (podeComprar === true) {
       if (confirm(`Suas cartas são ${deckJogador}.
 O valor das suas cartas é ${somaJogador}
@@ -221,8 +226,8 @@ Deseja comprar mais uma carta?`)) {
 
 // Função que faz o pc comprar
 
-function pcCompraMais () {
-   if (somaComputador<somaJogador && somaJogador <= 21) {
+function pcCompraMais () {   
+   if (somaComputador < somaJogador && somaJogador <= 21) {
       podeComprarPc = true
    }
    while (podeComprarPc === true){
@@ -232,6 +237,7 @@ function pcCompraMais () {
       alert(`O computador comprou ${deckComputador[deckComputador.length-1]}
 As cartas do computador são ${deckComputador} valor: ${somaComputador}
 Suas cartas são ${deckJogador} o valor das suas cartas é: ${somaJogador}`)
+
       if (somaComputador >= 17) {
          podeComprarPc = false
       }
