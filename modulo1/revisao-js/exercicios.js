@@ -158,14 +158,22 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
-
-    const sortear = (a,b) => b[1] - a[1]
-
+    let novoArrayDatas = []
+    let separaDatas = []
     for (let i=0; i<consultas.length; i++){
-        consultas[i].dataDaConsulta = consultas[i].dataDaConsulta.split("/")                
+        separaDatas[i] = consultas[i].dataDaConsulta.split("/")         
+    }    
+    separaDatas.sort(function (a,b) {return a[0]-b[0]})    
+    separaDatas.sort(function (a,b) {return a[1]-b[1]})    
+    for (let i=0; i<consultas.length; i++){
+        separaDatas[i] = (`${separaDatas[i][0]}/${separaDatas[i][1]}/${separaDatas[i][2]}`)
     }
-    const sorteado = consultas.sort((a,b) => a[1] - b[1])
-    consultas.sort(sortear)
-    console.log(consultas)
-    return consultas
+    for (let i=0; i<consultas.length; i++){
+        for (const item of consultas) {
+            if (item.dataDaConsulta == separaDatas[i]) {
+                novoArrayDatas.push({nome: item.nome, dataDaConsulta: separaDatas[i]})
+            }            
+        }
+    }   
+    return novoArrayDatas
 }
