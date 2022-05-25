@@ -1,0 +1,54 @@
+
+
+.teste {
+    text-align: center;
+    font-size: 16px;
+    padding: 1px;
+    color: rgb(0, 0, 0);    
+    background-color: yellow;
+    border: 2px solid black;
+}
+.nav {
+    text-align: left;
+    background-color: yellow ;
+    border: 2px solid black;
+}
+#entregador {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.tabelinha {    
+    border: 2px solid yellow;
+    background-color: black;
+    color: white;
+}
+img {    
+    width: 70%;
+}
+.instagrola {
+    width: 32px;
+}
+.table-teste {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    text-align: center;
+}
+.img-frutas {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.add-produto {
+    color: black;
+    background-color: yellow;
+    border: 2px solid;
+}
+.navegacao {
+    display: inline;  
+    margin: 1px;
+    background-color: yellow;
+    border: 2px solid rgb(0, 0, 0);    
+}
