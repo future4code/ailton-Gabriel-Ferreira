@@ -26,7 +26,9 @@ button:focus {
 }
 
 img {
-    width: 100px;
+    width: 68px;
+    height: 68px;
+    border: 1px solid black;
 }
 
 /* div>p:first-child {
@@ -96,6 +98,7 @@ div img {
   **/
 
 div:nth-child(2),
+
 div:last-child {
     text-align: center;
 }
