@@ -9,7 +9,7 @@
     padding: 0;
 }
 
-h2 {
+header {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
     color: white;
@@ -29,9 +29,9 @@ img {
     width: 100px;
 }
 
-div>p:first-child {
+/* div>p:first-child {
     display: inline;
-}
+} */
 
 div img {
     background: black;
@@ -66,9 +66,12 @@ div img {
   *
   **/
 
-#container-de-descricao {
+#container-de-descricao {    
     background-color: #2274a5;
-    color: white;
+    color: white;    
+}
+#container-de-descricao > p {
+    padding-top: 140px;    
 }
 
 #container-de-descricao>ol {
@@ -79,7 +82,7 @@ div img {
     background-color: #e7eb90;
 }
 
-#container-para-comprar>p {
+#container-para-comprar >p {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
