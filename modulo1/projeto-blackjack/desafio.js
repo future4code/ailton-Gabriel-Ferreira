@@ -100,6 +100,7 @@ function fazerBaralho () {
    for (let i = 0; i<naipes.length; i++){
       for (let j = 0; j<valores.length; j++)
       baralho.push(valores[j] + naipes[i])
+      console.log(baralho)
    }
 }
 
