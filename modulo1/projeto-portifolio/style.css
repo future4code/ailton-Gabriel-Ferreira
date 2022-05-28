@@ -132,7 +132,7 @@ header {
 }
 
 footer>div>.infos>a {
-    color: rgb(144, 177, 0);
+    color: rgb(255, 255, 255);
 }
 
 .sobre-mim {
@@ -156,12 +156,12 @@ footer>div>.infos>a {
 }
 
 .infos{
-    text-align: right;
+    text-align: left;
     display: inline;
-    width: 310px;
+    width: 140px;
     height: 280px;
     position: absolute;
-    margin-left: 83%;
+    right: 0;
     border: 0px solid white; 
 }
 .moldura>.icones>.icon:hover {
@@ -267,4 +267,83 @@ footer>div>.infos>a {
     display: inline;
     padding-top: 28px;
     padding-left: 15px;
+}
+
+.container-portifolio {
+    position: relative;
+    border: 0px solid red;
+    height: 290px;
+    margin-top: 300px;
+    
+}
+.container-portifolio>a>img {
+    border-radius: 10%;
+}
+.container-portifolio>a>img:hover {
+    border: 1px solid rgb(0, 59, 93);
+}
+
+.texto-blackjack {
+    display: inline;
+    position: absolute;
+    border: 0px solid rgb(255, 0, 140);
+    width: 50%;
+    height: 300px;
+    margin-left: 32px;
+}
+.texto-blackjack>p {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 6%;
+    font-size: 30px;
+}
+.infos>a {
+    display: inline;
+    font-size: 22px;
+    padding-left: 36px;
+    margin-top: 10px;
+}
+.infos>.img-github {
+    display: inline;
+    position: absolute;
+    width: 22px;
+    padding-top: 0px;
+}
+.infos>.img-linkedin {
+    display: inline;
+    position: absolute;
+    width: 22px;
+    padding-top: 28px;
+}
+
+.infos>.img-twitter {
+    display: inline;
+    position: absolute;
+    width: 22px;
+    padding-top: 54px;
+}
+
+.infos>.img-instagram {
+    display: inline;
+    position: absolute;
+    width: 22px;
+    padding-top: 79px;
+}
+
+.conteudo-skills {
+    position: relative;
+    border: 0px solid red;
+    height: 200px;
+    margin-top: 130px;
+}
+
+.chamada-skills {
+    padding-left: 10%;
+    text-align: center;
+    color: rgb(56, 56, 56);
+    font-weight: bolder;
+    top: 0px;
+    display: inline;    
+    position: absolute;
+    font-size: 72px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
 }
