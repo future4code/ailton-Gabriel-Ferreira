@@ -19,10 +19,9 @@ header {
     height: 300px;
 }
 
-.titulo-site {
-    
+.titulo-site {    
     color: deepskyblue;
-    font-size: 44px;
+    font-size: 2.5vw;
     display: inline;
     position: relative;
     margin-left: 64px;
@@ -35,7 +34,7 @@ header {
     display: inline;
     position: absolute;
     margin-right: 64px;
-    font-size: 32px;
+    font-size: 2vw;
     margin-top: 24px;
     right: 0px;    
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -66,13 +65,12 @@ header {
 }
 
 .chamada {
-    
     color: rgb(56, 56, 56);
     font-weight: bolder;
     top: 124px;
     display: inline;    
     position: relative;
-    font-size: 72px;
+    font-size: 4.25vw;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;      
 }
 
@@ -212,7 +210,7 @@ footer>div>.infos>a {
 
 .habilidades {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 32px;
+    font-size: 1.8vw;
     border: 0px solid red;
     margin-top: 20px;
     margin-bottom: 160px;
@@ -221,7 +219,7 @@ footer>div>.infos>a {
 .apresentacao {
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 44px;
+    font-size: 2.2vw;
 }
 
 .formacao {
@@ -274,6 +272,8 @@ footer>div>.infos>a {
     border: 0px solid red;
     height: 290px;
     margin-top: 300px;
+    margin-bottom: 64px;
+    margin-left: 32px;
     
 }
 .container-portifolio>a>img {
@@ -346,4 +346,45 @@ footer>div>.infos>a {
     position: absolute;
     font-size: 72px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+}
+
+.soft-skills {
+    position: relative;
+    border: 0px solid red;
+    margin-bottom: 86px;
+    height: 400px;
+}
+
+.coluna1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: inline;
+    border: 0px solid black;
+    position: absolute;
+    width: 300px;
+    height: 397px;
+    margin-left: 20%;
+    padding-left: 46px;
+    font-size: 1.4vw;
+    background-color: rgb(223, 223, 223);
+    border-radius: 5%;
+    padding-top: 46px;    
+}
+
+.coluna2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: inline;
+    border: 0px solid black;
+    position: absolute;
+    width: 300px;
+    height: 397px;
+    margin-left: 60%;
+    padding-left: 46px;
+    font-size: 1.4vw;
+    background-color: rgb(223, 223, 223);
+    border-radius: 5%;
+    padding-top: 46px;
+}
+
+.titulo-skills {
+    font-size: 1.5vw;
 }
