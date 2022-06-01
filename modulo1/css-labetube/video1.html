@@ -10,22 +10,77 @@
 </head>
 
 <body>
+
     <div class="container">
+
         <header>
-            <a href="index.html">
-                <h1>Labetubeson</h1>
-            </a>
-            <input type="text" placeholder="Pesquisar">
+            <div id="logo">
+                <a href="index.html"><img src="youtube.png" alt=""></a>                
+                <a href="index.html"><h1>Youtube</h1></a>                
+            </div>
+            <div id="search">
+                <label for="text">Pesquisar</label>
+                <input type="text" placeholder="Buscar">
+                <img src="search.png" alt="">
+            </div>
         </header>
-        <main id="display">
-            <h1>Titulo do video</h1>
-            <video controls>
-                <source src="https://storage.googleapis.com/future-apis.appspot.com/7.mp4" type="video/mp4">
+
+        <main id="video-player">
+            <section id="container-video-player">
+
+                <div id="titulo">
+                    <video src="https://storage.googleapis.com/future-apis.appspot.com/1.mp4" controls>                 
+                    </video>
+                    <h1>Titulo do Video</h1>
+                </div>
+                
+                <aside id="opcoes-videos">
+                    <div id="minivideo">
+                        <img src="https://picsum.photos/200/300" alt="">
+                        <p>Mini-video 1</p>
+                    </div>
+
+                    <div id="minivideo">
+                        <img src="https://picsum.photos/201/300" alt="">
+                        <p>Mini-video 2</p>
+                    </div>
+
+                    <div id="minivideo">
+                        <img src="https://picsum.photos/202/300" alt="">
+                        <p>Mini-video 3</p>
+                    </div>
+
+                    <div id="minivideo">
+                        <img src="https://picsum.photos/203/300" alt="">
+                        <p>Mini-video 4</p>
+                    </div>
+
+                    <div id="minivideo">
+                        <img src="https://picsum.photos/204/300" alt="">
+                        <p>Mini-video 5</p>
+                    </div>
+
+                    <div id="minivideo">
+                        <img src="https://picsum.photos/205/300" alt="">
+                        <p>Mini-video 6</p>
+                    </div>
+
+                    <div id="minivideo">
+                        <img src="https://picsum.photos/206/300" alt="">
+                        <p>Mini-video 7</p>
+                    </div>
+                    
+                </aside>
+            </section>
+
+            
+
         </main>
 
-        <footer>Footer</footer>
+        <footer>
+            Footer
+        </footer>
     </div>
-
 
 </body>
 

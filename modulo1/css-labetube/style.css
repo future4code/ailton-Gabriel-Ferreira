@@ -6,75 +6,200 @@
 
 a {
     text-decoration: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
     color: white;
 }
 
 .container {
     display: grid;
-    height: 100vh;
-    grid-template-rows: max-content 8fr 1fr;
-    grid-template-areas:
-    'header header header header'
-    'main main main main'
-    'footer footer footer footer';
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 100% 10vh;
 }
 
 header {
+    background-color: rgb(56, 56, 56);
+    color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    height: 54px;
-    padding: 0 32px;
-    background-color: red;
-    color: white;
-    grid-area: header;
+    padding: 0vw 5vw;
 }
+
 
 main {
-    display: grid;
-    grid-template-rows: 400px 400px;
-    grid-template-columns: max-content max-content max-content max-content;
-    gap: 8px;
-    margin: 8px;
-    grid-area: main;
-}
-main>div>a>video{
-    max-width: 300px;
-    width: 100%;
-    height: 360px;
-    border: 1px solid black;
-    box-shadow: 3px 3px darkgray;
-}
-main>source{
-    width: 600px;
-    height: 600px;
-}
-
-#display {
     display: flex;
-    flex-direction: column;
-}
-#display>video {
-    width: 97vw;
-}
-
-main>div {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
+}
+
+#video-player {
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px;
+    justify-content: space-between;
+}
+
+#opcoes-videos {
     border: 1px solid black;
-    box-shadow: 3px 3px darkgray;
-    border-radius: 6px 6px;
+    width: 100%;
 }
 
 footer {
-    background-color: blue;
     color: white;
-    grid-area: footer;
+    background-color: rgb(0, 0, 0);
+}
+
+.video-player {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 5px 5px;
+}
+
+.video-player img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px 5px;
+}
+
+#container-video {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1vw;
+    margin: 1vw;
+    align-items: center;
+    flex-grow: 2;
+}
+
+#container-barra-lateral {
+    background-color: rgb(223, 223, 223);
+    width: 240px;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    padding: 2vw;
+}
+
+#logo img {
+    width: 4rem;
+}
+
+#logo h1 {
+    font-size: 2rem;
+}
+
+#search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+
+#search input {
+    width: 20vw;
+    height: 24px;
+    min-width: 270px;
+}
+
+#search img {
+    background-color: white;
+    height: 24%;
+    padding: 2px;
+    border-radius: 10% 10%;
+}
+
+#search img:hover {
+    cursor: pointer;
+}
+
+#titulo {
+    display: flex;
+    flex-direction: column;
+}
+
+#video-player {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#container-video-player {
+    display: flex;
+    width: 100%;
+    height: min-content;
+}
+
+#container-video-player video {
+    height: 45vw;
+}
+
+#opcoes-videos {
+    border: 1px solid darkgray;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    padding: 1vh .5vw;
+    height: min-content;
+    margin: 0vh 1vw;
+}
+
+#minivideo {
+    border: 1px solid darkgray;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    width: 100%;
+    height: 10vh;
+}
+
+#minivideo:hover {
+    background-color: white;
+    cursor: pointer;
+}
+
+#minivideo img {
+    width: 120px;
+    padding: 1vh;
+    height: 100%;
+}
+
+#container-video-player aside {
+    background-color: rgb(218, 218, 218);
+
+}
+
+@media screen and (max-device-width : 480px) {
+    /* celulares */
+    #container-video {
+    grid-template-columns: 1fr;
+    margin: 1vw;
+    padding: 1vw;
+    }
+
+    #container-barra-lateral {
+        display: none;
+    }
+
+    #logo h1{
+        display: none;
+    }
+
+    #logo img {
+        width: 3rem;
+    }
+
+    #search input {
+        width: 60vw;
+    }
+
+    #container-video-player {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        height: min-content;
+    }
 }
