@@ -25,6 +25,12 @@ export class SecaoComentario extends Component {
 
 	}
 
+	adcionaComentario = (event) => {
+		const novoComentario = this.state.inputTexto
+		const novoComentarios = [novoComentario, this.state.inputTexto]
+		this.setState({inputTexto: novoComentarios})
+	}
+
 	render() {
 		return <CommentContainer>
 			<InputComentario
