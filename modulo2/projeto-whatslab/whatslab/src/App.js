@@ -25,29 +25,22 @@ const Contatos = styled.aside`
   flex-direction: column;
   width: 30vw;
   min-width: min-content;
+  overflow: auto;
   @media only screen and (max-width: 480px) {
     display: none;
   }
 `;
 
 const BotaoMostrarEsconder = styled.button`
-background-color: lime;
-width: 100%;
-height: 30px;
-:hover{
-  background-color: limegreen;
-  cursor: pointer;
-}
-`
-const BotaoMostrarEsconderMini = styled.button`
-background-color: lime;
-width: 50px;
-height: 40px;
-:hover{
-  background-color: limegreen;
-  cursor: pointer;
-}
-`
+  background-color: lime;
+  width: 120px;
+  height: 90%;
+  border: 1px solid darkgray;
+  :hover {
+    background-color: limegreen;
+    cursor: pointer;
+  }
+`;
 
 const Mensagens = styled.section`
   display: grid;
@@ -55,6 +48,7 @@ const Mensagens = styled.section`
   grid-template-columns: 100%;
   border: 1px solid darkgray;
   width: 100%;
+  height: 100%;
   @media only screen and (max-width: 480px) {
     grid-template-rows: 10% 75% 15%;
     width: 100%;
@@ -68,7 +62,7 @@ const MensagensPart = styled.div`
   width: 100%;
   height: 100%;
   background-color: #efeae2;
-  overflow-y: scroll;
+  overflow: auto;
 `;
 
 const InputMensagem = styled.input`
@@ -153,7 +147,7 @@ class App extends React.Component {
     mensagem: [
       { usuario: "Zezin", mensagem: "Oi tudo bem?" },
       { usuario: "Joseph", mensagem: "Sarve" },
-      { usuario: "eu", mensagem: "Fala pessoar"},
+      { usuario: "eu", mensagem: "Fala pessoar" },
     ],
     contatoShow: true,
   };
@@ -261,40 +255,45 @@ class App extends React.Component {
   };
 
   mostrarEsconder = () => {
-    console.log('Clicou')
-    this.setState ({contatoShow: !this.state.contatoShow})
-  }
+    console.log("Clicou");
+    this.setState({ contatoShow: !this.state.contatoShow });
+  };
 
   render() {
-    let contatoShow = []
+    let contatoShow = [];
     if (this.state.contatoShow === true) {
-      contatoShow = <Contatos>
-          <BotaoMostrarEsconder onClick={this.mostrarEsconder}>Mostrar/Esconder Contatos</BotaoMostrarEsconder>
-        <ContainerInputs>
-          <InputNomeContato
-            value={this.state.valorInputContatoFoto}
-            onChange={this.onChangeInputContatoFoto}
-            placeholder="Foto ID"
-          />
-          <input
-            value={this.state.valorInputContatoNome}
-            onChange={this.onChangeInputContatoNome}
-            placeholder="Nome do contato"
-          />
-          <button onClick={this.adicionaContato}>Contato</button>
-        </ContainerInputs>
-        <Contato propContato={this.state.contatos} />
-      </Contatos>
+      contatoShow = (
+        <Contatos>          
+          <ContainerInputs>
+            <InputNomeContato
+              value={this.state.valorInputContatoFoto}
+              onChange={this.onChangeInputContatoFoto}
+              placeholder="Foto ID"
+            />
+            <input
+              value={this.state.valorInputContatoNome}
+              onChange={this.onChangeInputContatoNome}
+              placeholder="Nome do contato"
+            />
+            <button onClick={this.adicionaContato}>Adicionar</button>
+          </ContainerInputs>
+          <Contato propContato={this.state.contatos} />
+        </Contatos>
+      );
     } else {
-      contatoShow = <BotaoMostrarEsconderMini onClick={this.mostrarEsconder}>Mostrar/Esconder Contatos</BotaoMostrarEsconderMini>
-        }
-
+      contatoShow = (
+        <></>
+      );
+    }
     return (
       <TelaTotal>
         <WhatsLab>
           {contatoShow}
           <Mensagens>
             <ContainerUsuario>
+              <BotaoMostrarEsconder onClick={this.mostrarEsconder}>
+               Mostrar/Esconder Contatos
+              </BotaoMostrarEsconder>
               <img src="https://picsum.photos/id/237/1000/1000" />
               <p>Peçanha</p>
             </ContainerUsuario>
