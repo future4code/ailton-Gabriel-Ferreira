@@ -263,7 +263,7 @@ class App extends React.Component {
     let contatoShow = [];
     if (this.state.contatoShow === true) {
       contatoShow = (
-        <Contatos>          
+        <Contatos>
           <ContainerInputs>
             <InputNomeContato
               value={this.state.valorInputContatoFoto}
@@ -281,9 +281,7 @@ class App extends React.Component {
         </Contatos>
       );
     } else {
-      contatoShow = (
-        <></>
-      );
+      contatoShow = <></>;
     }
     return (
       <TelaTotal>
@@ -292,13 +290,15 @@ class App extends React.Component {
           <Mensagens>
             <ContainerUsuario>
               <BotaoMostrarEsconder onClick={this.mostrarEsconder}>
-               Mostrar/Esconder Contatos
+                Mostrar/Esconder Contatos
               </BotaoMostrarEsconder>
               <img src="https://picsum.photos/id/237/1000/1000" />
               <p>Peçanha</p>
             </ContainerUsuario>
             <MensagensPart>
-              <Mensagem propUsuario={this.state.mensagem} />
+              <Mensagem
+                propUsuario={this.state.mensagem}
+              />
             </MensagensPart>
             <ContainerInputs>
               <InputUsuario
