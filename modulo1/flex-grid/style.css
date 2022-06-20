@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 44px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    align-items: center;
+    background-color: mediumvioletred;
+}
+
+footer {
+    display: flex;
+    background-color: mediumvioletred;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+main {
+    display: flex;
+}
+
+button {
+    width: 60px;
+}
+
+.logo-texto {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#logo {
+    width: 26px;
+}
+
+.menuzinho {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    flex-grow: 1;
+    background-color: #f2d0e0;
+}
+
+.main-content {
+    display: flex;
+    border: 0px solid blue;
+    flex-grow: 12;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 16px;
+    padding: 10px;
+}
+
+.icon {
+    height: 18px;
+}
+
+.opcao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 22px;
+    margin: 2px 0;
+
+}
+
+.escolha {
+    /* gap: 8px; */
+    display: flex;
+    align-items: center;
+}
+
+.bolo {
+    width: 225px;
+}
+
+.card {
+    text-align: center;
+    width: 227px;
+    height: 320px;
+    box-shadow: 2px 2px darkgray;
+}
+
+.card>p {
+    font-weight: 600;
+}
