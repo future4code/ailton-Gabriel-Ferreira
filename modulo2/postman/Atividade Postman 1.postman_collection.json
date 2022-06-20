@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "3e680560-6533-4f43-98d6-97ce5a1960c4",
+		"name": "Atividade Postman 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21551914"
+	},
+	"item": [
+		{
+			"name": "Criar Playlist",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
