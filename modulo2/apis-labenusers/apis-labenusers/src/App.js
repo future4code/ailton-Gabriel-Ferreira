@@ -17,7 +17,7 @@ const Container = styled.div`
 
 export default class App extends Component {
   state = {
-    actualScreen: 0,
+    actualScreen: 3,
     canAccess: false,
   };
 
@@ -38,18 +38,6 @@ export default class App extends Component {
     if(this.state.canAccess === true) {
     this.setState({ actualScreen: 3 });
     }
-  };
-
-  deleteUser = (id) => {
-    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,{
-        headers: {
-            Authorization: "gabriel-ferreira-ailton"
-        }
-    }).then((response) => {
-        alert('Usuario deletado')
-    }).catch((error)=> {
-        alert('Não foi possivel deletar o usuario, tente novamente')
-    })
   };
 
   changeScreen = () => {

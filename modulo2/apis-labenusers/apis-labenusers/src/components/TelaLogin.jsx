@@ -12,6 +12,22 @@ const MidContainer = styled.div`
   border: 1px solid black;
   width: 20%;
   height: 60%;
+  border-radius: 25px;
+  gap: 24px;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 12px;
+  border-radius: 12px;
+  gap: 2px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 4px;
 `;
 
 export default class TelaLogin extends Component {
@@ -31,11 +47,17 @@ export default class TelaLogin extends Component {
         }
       )
       .then((response) => {
-        if (response.data.map(data=>{return data.name}).includes(this.state.inputLogin.toLowerCase())) {
-            this.props.access()
-            this.props.screenThree()
+        if (
+          response.data
+            .map((data) => {
+              return data.name;
+            })
+            .includes(this.state.inputLogin.toLowerCase())
+        ) {
+          this.props.access();
+          this.props.screenThree();
         } else {
-            alert('Login Invalido')
+          alert("Login Invalido");
         }
       })
       .catch((error) => {
@@ -52,31 +74,33 @@ export default class TelaLogin extends Component {
   render() {
     return (
       <MidContainer>
-        {this.props.access ? 
-        <>
-        <h2>Realizar Login</h2>
-        <label>
-          Login:
-          <input
-            value={this.state.inputLogin}
-            onChange={this.onChangeInputLogin}
-          />
-        </label>
-        <label>
-          E-Mail:
-          <input
-            value={this.state.inputEmail}
-            onChange={this.onChangeInputEmail}
-          />
-        </label>
-        <button onClick={this.getAllUsers}>Logar</button>
-        <button onClick={this.props.screenOne}>Cadastrar-se</button>
-        <button onClick={this.props.screenZero}>Retornar ao inicio</button> 
-        </> : 
-        <div>Acessar</div>
-        
-    }
-        
+        {this.props.access ? (
+          <>
+            <h2>Realizar Login</h2>
+            <InputContainer>
+              <input
+                value={this.state.inputLogin}
+                onChange={this.onChangeInputLogin}
+                placeholder="Login"
+              />
+              <input
+                value={this.state.inputEmail}
+                onChange={this.onChangeInputEmail}
+                placeholder="E-mail"
+              />
+              <input placeholder="Senha" />
+              <button onClick={this.getAllUsers}>Logar</button>
+            </InputContainer>
+            <ButtonContainer>
+              <button onClick={this.props.screenOne}>Cadastrar-se</button>
+              <button onClick={this.props.screenZero}>
+                Retornar ao inicio
+              </button>
+            </ButtonContainer>
+          </>
+        ) : (
+          <div>Acessar</div>
+        )}
       </MidContainer>
     );
   }
