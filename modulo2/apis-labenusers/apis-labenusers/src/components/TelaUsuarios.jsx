@@ -22,15 +22,18 @@ export default class TelaUsuarios extends Component {
     componentDidMount(){
         this.getAllUsers()
     }
-    componentDidUpdate(){
-        this.getAllUsers()
-    }
+
+    // componentDidUpdate(){
+    //     this.getAllUsers()
+    // }
+
     getAllUsers = () => {
         axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", {
             headers: {
                 Authorization: "gabriel-ferreira-ailton"
             }
         }).then((response) => {
+            console.log(response)
             this.setState ({allUsers: response.data})
             }).catch((error)=>{
             console.log(error)
