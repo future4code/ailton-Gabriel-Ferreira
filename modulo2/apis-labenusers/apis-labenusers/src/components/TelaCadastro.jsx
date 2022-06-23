@@ -6,14 +6,14 @@ const MidContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: orangered;
+  background-color: #0F0F0F;
   color: white;
-  border: 1px solid black;
+  border: 1px solid #E36000;
   width: 20%;
   height: 60%;
   gap: 24px;
   padding: 64px 0px;
-  border-radius: 25px;
+  border-radius: 12px;
 `;
 
 const FormContainer = styled.form`

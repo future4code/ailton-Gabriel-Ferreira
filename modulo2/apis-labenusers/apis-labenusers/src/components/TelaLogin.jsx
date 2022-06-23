@@ -8,20 +8,18 @@ const MidContainer = styled.div`
   padding: 64px 0px;
   align-items: center;
   flex-direction: column;
-  background-color: white;
-  border: 1px solid black;
+  background-color: #0F0F0F;
+  border: 1px solid #E36000;
   width: 20%;
   height: 60%;
-  border-radius: 25px;
+  border-radius: 12px;
   gap: 24px;
 `;
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   padding: 12px;
-  border-radius: 12px;
   gap: 2px;
 `;
 
@@ -29,6 +27,17 @@ const ButtonContainer = styled.div`
   display: flex;
   gap: 4px;
 `;
+
+const EnterButton = styled.button`
+border: none;
+padding: 4px;
+border-radius: 4px;
+color: white;
+background-color: #E36000 ;
+:hover {
+  cursor: pointer;
+}
+`
 
 export default class TelaLogin extends Component {
   state = {
@@ -83,13 +92,8 @@ export default class TelaLogin extends Component {
                 onChange={this.onChangeInputLogin}
                 placeholder="Login"
               />
-              <input
-                value={this.state.inputEmail}
-                onChange={this.onChangeInputEmail}
-                placeholder="E-mail"
-              />
               <input placeholder="Senha" />
-              <button onClick={this.getAllUsers}>Logar</button>
+              <EnterButton onClick={this.getAllUsers}>Entrar</EnterButton>
             </InputContainer>
             <ButtonContainer>
               <button onClick={this.props.screenOne}>Cadastrar-se</button>
