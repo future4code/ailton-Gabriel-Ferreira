@@ -7,6 +7,21 @@ const Container = styled.div`
   height: 100%;
 `;
 
+const TrackName = styled.div`
+  display: flex;
+  border: 1px solid white;
+  width: fit-content;
+  padding: 0px 4px;
+  border-radius: 8px;
+  margin: 8px 4px;
+  cursor: pointer;
+  :hover {
+    background-color: white;
+    color: black;
+    transition: 0.2s ease;
+  }
+`;
+
 export default class Center extends Component {
   state = {
     creating: false,
@@ -50,10 +65,9 @@ export default class Center extends Component {
         <div>
           {this.props.tracks.map((data) => {
             return (
-              <div key={data.id}>
-                <p onClick={()=>this.props.actualUrl(data.url)}>{data.name}</p>
-                <p>{data.artist}</p>
-              </div>
+              <TrackName key={data.id}>
+                <p onClick={()=>this.props.actualUrl(data.url)}>{data.name} - {data.artist}</p>
+              </TrackName>
             );
           })}
         </div>
@@ -61,3 +75,6 @@ export default class Center extends Component {
     );
   }
 }
+
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/352FuGmGJClPjojSYjNrXG?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
