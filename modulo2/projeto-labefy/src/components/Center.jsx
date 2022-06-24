@@ -12,10 +12,6 @@ export default class Center extends Component {
     creating: false,
   };
 
-  componentDidUpdate(){
-
-  }
-
   setCreating = () => {
     this.setState({ creating: !this.state.creating });
   };
@@ -55,7 +51,7 @@ export default class Center extends Component {
           {this.props.tracks.map((data) => {
             return (
               <div key={data.id}>
-                <p>{data.name}</p>
+                <p onClick={()=>this.props.actualUrl(data.url)}>{data.name}</p>
                 <p>{data.artist}</p>
               </div>
             );

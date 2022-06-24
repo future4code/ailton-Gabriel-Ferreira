@@ -26,34 +26,39 @@ export default class App extends Component {
     inputPlaylisName: "",
     playlists: [],
     tracks: [],
+    actualTrackUrl: "",
     actualPlaylist: "",
     actualPlaylistId: "",
     inputMusicName: "",
     inputArtistName: "",
     InputUrl: "",
   };
+
   componentDidMount() {
     this.getAllPlaylists();
   }
 
-  getAllPlaylists = async() => {
-    try {
-  const res = await axios.get(url1, auth)
-  console.log('Função getAllPlaylist executou')
-      this.setState({ playlists: res.data.result.list });
-    }
-    catch (err) {
-      console.log(err)
-    }
-  }
+  // componentDidUpdate() {
+  //   console.log('eu')
+  //   this.getPlaylistTracks()
+  // }
 
-  getPlaylistTracks = async () => {
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.state.actualPlaylistId}/tracks`;
+  getAllPlaylists = async () => {
+    try {
+      const res = await axios.get(url1, auth);
+      console.log(res);
+      this.setState({ playlists: res.data.result.list });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  getPlaylistTracks = async (id) => {
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}/tracks`;
     try {
       const res = await axios.get(url, {
         headers: { Authorization: "gabriel-ferreira-ailton" },
       });
-      console.log('Função getPlaylistTracks executou');
       this.setState({ tracks: res.data.result.tracks });
       this.getAllPlaylists();
     } catch (err) {
@@ -66,7 +71,7 @@ export default class App extends Component {
       name: this.state.inputPlaylisName,
     };
     axios.post(url1, body, auth).then((res) => {
-      console.log(res);
+      // console.log(res);
       this.getAllPlaylists();
       this.setState({ actualPlaylist: name });
     });
@@ -75,7 +80,7 @@ export default class App extends Component {
   deletePlaylist = (id) => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${id}`;
     axios.delete(url, auth).then((res) => {
-      console.log(res);
+      // console.log(res);
       this.getAllPlaylists();
     });
   };
@@ -90,8 +95,10 @@ export default class App extends Component {
     axios
       .post(url, body, auth)
       .then((res) => {
-        console.log(res);
-        this.getAllPlaylists();
+        this.getPlaylistTracks();
+        this.state.tracks.filter(data=>{
+          return true
+        })
       })
       .catch((err) => {
         console.log(err);
@@ -121,10 +128,14 @@ export default class App extends Component {
   };
 
   setAcualPlaylist = (name, id) => {
-    this.setState({ actualPlaylist: name });
-    this.setState({ actualPlaylistId: id });
-    this.getPlaylistTracks();
+    this.setState({ actualPlaylist: name, actualPlaylistId: id });
+    this.getPlaylistTracks(id);
     // this.getAllPlaylists()
+  };
+
+  setActualUrl = (url) => {
+    console.log(url);
+    this.setState({ actualTrackUrl: url });
   };
 
   render() {
@@ -151,10 +162,11 @@ export default class App extends Component {
               addTrack={this.addTrackToPlaylist}
               getPlaylist={this.getAllPlaylists}
               tracks={this.state.tracks}
+              actualUrl={this.setActualUrl}
             />
           )}
         </DivPrincipal>
-        <Player />
+        <Player url={this.state.actualTrackUrl} />
       </Container>
     );
   }
