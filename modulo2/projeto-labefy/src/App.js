@@ -95,10 +95,11 @@ export default class App extends Component {
     axios
       .post(url, body, auth)
       .then((res) => {
+        console.log(res);
         this.getPlaylistTracks();
-        this.state.tracks.filter(data=>{
-          return true
-        })
+        this.state.tracks.filter((data) => {
+          return true;
+        });
       })
       .catch((err) => {
         console.log(err);
