@@ -1,5 +1,5 @@
 import axios from "axios";
-import { choosePerson, getProfile, getMatches } from "../constants/Urls";
+import { choosePerson, getProfile, getMatches, clear} from "../constants/Urls";
 
 export const match = (idPar, choicePar, setFunction, hookValue) => {
   const body = {
@@ -38,3 +38,8 @@ export const getMatchesFunc = (setFunction) => {
       console.log(err);
     });
 };
+
+export const clearMatches = () => {
+  axios.put(clear)
+  .then((res)=>{console.log(res)}).catch((err)=>{console.log(err)})
+}

@@ -47,7 +47,7 @@ const ButtonsDiv = styled.div`
 `;
 
 const Perfil = (props) => {
-    const [sawProfile, setSawProfile] = useState(false)
+  const [sawProfile, setSawProfile] = useState(false);
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
@@ -57,22 +57,41 @@ const Perfil = (props) => {
   return (
     <Container>
       {console.log(profile)}
-      <Card>
-        <HeaderDiv>
-          <h1>Astromatch</h1>
-          <p onClick={()=>props.chooseScreen("matches")}>Ver Matchs</p>
-        </HeaderDiv>
-        <PhotoAndTextDiv img={profile.photo}>
-          <InfosDiv>
-            <p>{`${profile.name}, ${profile.age}`}</p>
-            <p>{profile.bio}</p>
-          </InfosDiv>
-        </PhotoAndTextDiv>
-        <ButtonsDiv>
-          <button onClick={() => match(profile.id, true, setSawProfile, sawProfile)}>Zamn 😍</button>
-          <button onClick={() => match(profile.id, true, setSawProfile, sawProfile)}>Zad 😢</button>
-        </ButtonsDiv>
-      </Card>
+      {profile ? (
+        <Card>
+          <HeaderDiv>
+            <h1>Astromatch</h1>
+            <p onClick={() => props.chooseScreen("matches")}>Ver Matchs</p>
+          </HeaderDiv>
+          <PhotoAndTextDiv img={profile.photo}>
+            <InfosDiv>
+              <p>{`${profile.name}, ${profile.age}`}</p>
+              <p>{profile.bio}</p>
+            </InfosDiv>
+          </PhotoAndTextDiv>
+          <ButtonsDiv>
+            <button
+              onClick={() => match(profile.id, true, setSawProfile, sawProfile)}
+            >
+              Zamn 😍
+            </button>
+            <button
+              onClick={() =>
+                match(profile.id, false, setSawProfile, sawProfile)
+              }
+            >
+              Zad 😢
+            </button>
+          </ButtonsDiv>
+        </Card>
+      ) : (
+        <Card>
+          <HeaderDiv>
+            <h1>Astromatch</h1>
+            <p onClick={() => props.chooseScreen("matches")}>Ver Matchs</p>
+          </HeaderDiv>
+        </Card>
+      )}
     </Container>
   );
 };

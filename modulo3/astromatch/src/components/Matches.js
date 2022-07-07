@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Card, HeaderDiv } from "../styles/GlobalStyle";
-import { getMatchesFunc } from "../functions/Functions";
+import { getMatchesFunc, clearMatches } from "../functions/Functions";
 import styled from "styled-components";
 
 const MatchesDiv = styled.div`
@@ -60,6 +60,9 @@ const Matches = (props) => {
             return <MiniProfileDiv img={data.photo}><p>{`${data.name}`}</p></MiniProfileDiv>;
           })}
         </MatchesDiv>
+      <button onClick={()=>clearMatches()}>
+        Clear
+      </button>
       </Card>
     </Container>
   );
