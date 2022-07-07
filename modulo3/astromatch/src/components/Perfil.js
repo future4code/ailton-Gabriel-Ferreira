@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { seeProfile, match } from "../functions/Functions";
 import styled from "styled-components";
-import { Container } from "../styles/GlobalStyle";
-
-const Card = styled.section`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  width: 320px;
-  height: 780px;
-  background-color: #bbb;
-`;
+import { Container, Card, HeaderDiv } from "../styles/GlobalStyle";
 
 const PhotoAndTextDiv = styled.div`
   display: flex;
@@ -55,15 +46,7 @@ const ButtonsDiv = styled.div`
   }
 `;
 
-const HeaderDiv = styled.div `
-display: flex;
-width: 100%;
-justify-content: space-between;
-align-items: center;
-padding: 12px;
-`
-
-const Perfil = () => {
+const Perfil = (props) => {
     const [sawProfile, setSawProfile] = useState(false)
   const [profile, setProfile] = useState({});
 
@@ -77,7 +60,7 @@ const Perfil = () => {
       <Card>
         <HeaderDiv>
           <h1>Astromatch</h1>
-          <p>Ver Matchs</p>
+          <p onClick={()=>props.chooseScreen("matches")}>Ver Matchs</p>
         </HeaderDiv>
         <PhotoAndTextDiv img={profile.photo}>
           <InfosDiv>
