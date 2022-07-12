@@ -3,12 +3,14 @@ import {
   Container,
   Explanation,
   ExplanationInternDiv,
-  Header,
   Main,
-  MediumIconRoundBorder,
+} from "./HomePageStyle";
+import {
+  Header,
   ViewMoreButton,
   ButtonsMiniDiv,
-} from "./HomePageStyle";
+  MediumIconRoundBorder,
+} from "../../styles/GlobalStyle";
 import AstronautOk from "../../images/astronaut-ok.jpg";
 import AstronautRocket from "../../images/astronaut-rocket.jpg";
 import AstronautFlying from "../../images/astronaut-flying.jpg";
