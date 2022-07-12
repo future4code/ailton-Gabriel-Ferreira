@@ -26,6 +26,8 @@ const ListTripsPage = () => {
       {console.log(trips)}
       <Header>
         <h1>Labe-X</h1>
+        <button>Viagens</button>
+        <button>Candidatar-se</button>
         <button>Login</button>
       </Header>
       <Container ref={carousel}>
