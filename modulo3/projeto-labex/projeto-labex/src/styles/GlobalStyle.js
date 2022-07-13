@@ -10,10 +10,12 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
       background-color: #101010;
       width: 8px;
+      /* display: none; */
     }
     ::-webkit-scrollbar-thumb {
       background-color: #bbb;
       border-radius: 8px;
+      /* display: none; */
     }
  }
 `

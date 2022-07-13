@@ -6,39 +6,22 @@ import {
   Main,
 } from "./HomePageStyle";
 import {
-  Header,
   ViewMoreButton,
   ButtonsMiniDiv,
   MediumIconRoundBorder,
-  HeaderButton,
 } from "../../styles/GlobalStyle";
 import AstronautOk from "../../images/astronaut-ok.jpg";
 import AstronautRocket from "../../images/astronaut-rocket.jpg";
 import AstronautFlying from "../../images/astronaut-flying.jpg";
 import { useNavigate } from "react-router-dom";
+import HeaderComp from "../Header/HeaderComp";
+import { goToPage } from "../../routes/coordinator";
 
 const HomePage = () => {
-  const navigate = useNavigate();
-
-  const goToListTripPage = () => {
-    navigate("/trips/list");
-  };
-
+const navigate = useNavigate();
   return (
     <Container>
-      <Header>
-        <div>
-          <h1>Labe-X</h1>
-        </div>
-        <div>
-          <HeaderButton onClick={goToListTripPage}>Viagens</HeaderButton>
-          <HeaderButton>Candidatar-se</HeaderButton>
-        </div>
-        <div>
-          <button>Login</button>
-        </div>
-      </Header>
-
+      <HeaderComp/>
       <Main>
         <div>
           <h2>O universo pode ser fascinante, não concorda?</h2>
@@ -90,7 +73,7 @@ const HomePage = () => {
           </p>
           <ButtonsMiniDiv>
             <ViewMoreButton >Agendar viagem</ViewMoreButton>
-            <ViewMoreButton onClick={goToListTripPage}>Conhecer pacotes</ViewMoreButton>
+            <ViewMoreButton onClick={()=>goToPage(navigate, '/trips/list')}>Conhecer pacotes</ViewMoreButton>
           </ButtonsMiniDiv>
         </div>
       </Main>

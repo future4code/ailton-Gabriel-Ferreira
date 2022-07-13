@@ -6,20 +6,10 @@ import { Card, Container, LeftRightButtonDiv, PageBg } from "./ListTripStyle";
 import { useRequestData } from "../../hooks/useRequestData";
 import { baseUrl } from "../../constants/Urls";
 import { useNavigate } from "react-router-dom";
+import HeaderComp from "../Header/HeaderComp";
 
 const ListTripsPage = () => {
-  const navigate = useNavigate();
-
-  const goToHomePage = () => {
-    navigate("/");
-  };
-
-  const goToListTripPage = () => {
-    navigate("/trips/list");
-  };
-
   const trips = useRequestData(`${baseUrl}/trips`);
-
   const carousel = useRef(null);
 
   const handleLeftClick = (e) => {
@@ -34,18 +24,8 @@ const ListTripsPage = () => {
 
   return (
     <PageBg>
-      <Header>
-        <div>
-          <h1 onClick={goToHomePage}>Labe-X</h1>
-        </div>
-        <div>
-          <HeaderButton onClick={goToListTripPage}>Viagens</HeaderButton>
-          <HeaderButton>Candidatar-se</HeaderButton>
-        </div>
-        <div>
-          <button>Login</button>
-        </div>
-      </Header>
+      <HeaderComp/>
+      
       <Container ref={carousel}>
         {trips?.map((data) => {
           const { id, name, planet, description } = data;
