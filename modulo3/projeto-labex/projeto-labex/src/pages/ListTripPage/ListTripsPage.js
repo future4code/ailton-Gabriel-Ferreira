@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Header } from "../../styles/GlobalStyle";
+import { ArrowButton, Header, HeaderButton } from "../../styles/GlobalStyle";
 import AstronautOk from "../../images/astronaut-ok.jpg";
 import { MediumIconRoundBorder } from "../../styles/GlobalStyle";
-import { Card, Container } from "./ListTripStyle";
+import { Card, Container, LeftRightButtonDiv, PageBg } from "./ListTripStyle";
 import { useRequestData } from "../../hooks/useRequestData";
 import { baseUrl } from "../../constants/Urls";
 import { useNavigate } from "react-router-dom";
@@ -11,8 +11,8 @@ const ListTripsPage = () => {
   const navigate = useNavigate();
 
   const goToHomePage = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   const goToListTripPage = () => {
     navigate("/trips/list");
@@ -33,13 +33,18 @@ const ListTripsPage = () => {
   };
 
   return (
-    <>
-      {console.log(trips)}
+    <PageBg>
       <Header>
-        <h1 onClick={goToHomePage}>Labe-X</h1>
-        <button onClick={goToListTripPage}>Viagens</button>
-        <button>Candidatar-se</button>
-        <button>Login</button>
+        <div>
+          <h1 onClick={goToHomePage}>Labe-X</h1>
+        </div>
+        <div>
+          <HeaderButton onClick={goToListTripPage}>Viagens</HeaderButton>
+          <HeaderButton>Candidatar-se</HeaderButton>
+        </div>
+        <div>
+          <button>Login</button>
+        </div>
       </Header>
       <Container ref={carousel}>
         {trips?.map((data) => {
@@ -54,9 +59,11 @@ const ListTripsPage = () => {
           );
         })}
       </Container>
-      <button onClick={handleLeftClick}>Esquerda</button>
-      <button onClick={handleRightClick}>Direita</button>
-    </>
+      <LeftRightButtonDiv>
+        <ArrowButton onClick={handleLeftClick}>{`<`}</ArrowButton>
+        <ArrowButton onClick={handleRightClick}>{`>`}</ArrowButton>
+      </LeftRightButtonDiv>
+    </PageBg>
   );
 };
 

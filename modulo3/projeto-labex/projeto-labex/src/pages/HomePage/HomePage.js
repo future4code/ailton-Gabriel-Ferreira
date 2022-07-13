@@ -10,6 +10,7 @@ import {
   ViewMoreButton,
   ButtonsMiniDiv,
   MediumIconRoundBorder,
+  HeaderButton,
 } from "../../styles/GlobalStyle";
 import AstronautOk from "../../images/astronaut-ok.jpg";
 import AstronautRocket from "../../images/astronaut-rocket.jpg";
@@ -26,10 +27,16 @@ const HomePage = () => {
   return (
     <Container>
       <Header>
-        <h1>Labe-X</h1>
-        <button onClick={goToListTripPage}>Viagens</button>
-        <button>Candidatar-se</button>
-        <button>Login</button>
+        <div>
+          <h1>Labe-X</h1>
+        </div>
+        <div>
+          <HeaderButton onClick={goToListTripPage}>Viagens</HeaderButton>
+          <HeaderButton>Candidatar-se</HeaderButton>
+        </div>
+        <div>
+          <button>Login</button>
+        </div>
       </Header>
 
       <Main>
@@ -82,8 +89,8 @@ const HomePage = () => {
             pacotes
           </p>
           <ButtonsMiniDiv>
-            <ViewMoreButton>Agendar viagem</ViewMoreButton>
-            <ViewMoreButton>Conhecer pacotes</ViewMoreButton>
+            <ViewMoreButton >Agendar viagem</ViewMoreButton>
+            <ViewMoreButton onClick={goToListTripPage}>Conhecer pacotes</ViewMoreButton>
           </ButtonsMiniDiv>
         </div>
       </Main>

@@ -64,6 +64,13 @@ export const ExplanationInternDiv = styled.div`
   flex-direction: ${(props) => (props.direction ? `row` : `row-reverse`)};
   align-items: center;
   width: 60%;
+  >p {
+    transition: 0.5s ease;
+    color: #bbb;
+    :hover {
+      color: #fff;
+    }
+  }
   @media (min-width: 481px) and (max-width: 820px) {
     width: 95%;
   }
