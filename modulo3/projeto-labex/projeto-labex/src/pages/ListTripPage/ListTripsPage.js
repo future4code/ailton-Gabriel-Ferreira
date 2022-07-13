@@ -5,8 +5,19 @@ import { MediumIconRoundBorder } from "../../styles/GlobalStyle";
 import { Card, Container } from "./ListTripStyle";
 import { useRequestData } from "../../hooks/useRequestData";
 import { baseUrl } from "../../constants/Urls";
+import { useNavigate } from "react-router-dom";
 
 const ListTripsPage = () => {
+  const navigate = useNavigate();
+
+  const goToHomePage = () => {
+    navigate('/')
+  }
+
+  const goToListTripPage = () => {
+    navigate("/trips/list");
+  };
+
   const trips = useRequestData(`${baseUrl}/trips`);
 
   const carousel = useRef(null);
@@ -25,8 +36,8 @@ const ListTripsPage = () => {
     <>
       {console.log(trips)}
       <Header>
-        <h1>Labe-X</h1>
-        <button>Viagens</button>
+        <h1 onClick={goToHomePage}>Labe-X</h1>
+        <button onClick={goToListTripPage}>Viagens</button>
         <button>Candidatar-se</button>
         <button>Login</button>
       </Header>

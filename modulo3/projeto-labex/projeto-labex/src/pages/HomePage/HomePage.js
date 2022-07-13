@@ -14,13 +14,20 @@ import {
 import AstronautOk from "../../images/astronaut-ok.jpg";
 import AstronautRocket from "../../images/astronaut-rocket.jpg";
 import AstronautFlying from "../../images/astronaut-flying.jpg";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const goToListTripPage = () => {
+    navigate("/trips/list");
+  };
+
   return (
     <Container>
       <Header>
         <h1>Labe-X</h1>
-        <button>Viagens</button>
+        <button onClick={goToListTripPage}>Viagens</button>
         <button>Candidatar-se</button>
         <button>Login</button>
       </Header>
