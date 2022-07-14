@@ -1,15 +1,19 @@
 import React from "react";
-import { Header, HeaderButton } from "../../styles/GlobalStyle";
+import { Header, HeaderButton, LogoTitle } from "../../styles/GlobalStyle";
 import { goToPage } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 
 const HeaderComp = () => {
   const navigate = useNavigate();
   const token = window.localStorage.getItem("token")
+  const clearUser = () => {
+    localStorage.clear()
+    goToPage(navigate, '/')
+  }
   return (
     <Header>
       <div>
-        <h1 onClick={()=>goToPage(navigate, '/')}>Labe-X</h1>
+        <LogoTitle onClick={()=>goToPage(navigate, '/')}>Labe-X</LogoTitle>
       </div>
       <div>
         <HeaderButton onClick={()=>goToPage(navigate, '/trips/list')}>Viagens</HeaderButton>
@@ -17,9 +21,12 @@ const HeaderComp = () => {
       </div>
       <div>
         {token === null ? (
-          <button onClick={()=>goToPage(navigate, '/login')}>Login</button>
+          <HeaderButton onClick={()=>goToPage(navigate, '/login')}>Login</HeaderButton>
         ) : (
-          <button onClick={()=>goToPage(navigate, '/adminPanel')}>Acessar area de Admin</button>
+          <>
+          <HeaderButton onClick={()=>goToPage(navigate, '/adminPanel')}>Area de Admin</HeaderButton>
+          <HeaderButton onClick={clearUser}>Deslogar</HeaderButton>
+          </>
         )}
       </div>
     </Header>

@@ -24,7 +24,7 @@ const navigate = useNavigate();
       <HeaderComp/>
       <Main>
         <div>
-          <h2>O universo pode ser fascinante, não concorda?</h2>
+          <h2>A maior viagem da sua vida está a um clique de distancia</h2>
           <ViewMoreButton>Saiba Mais</ViewMoreButton>
         </div>
       </Main>

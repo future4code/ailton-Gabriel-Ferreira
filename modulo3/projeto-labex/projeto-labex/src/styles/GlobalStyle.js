@@ -30,8 +30,13 @@ export const Header = styled.header`
   >div {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 64px;
     width: 30%;
     /* background-color: yellow; */
+    @media (max-width: 620px) {
+    flex-direction: column;
+  }
   }
   @media (max-width: 480px) {
     width: 100%;
@@ -75,15 +80,27 @@ export const HeaderButton = styled.button `
 cursor: pointer;
 border-radius: 6px;
 color: #fff;
-width: 120px;
+font-size: 1rem;
+padding: 2px 4px;
+white-space: nowrap;
+width: fit-content;
 height: fit-content;
 background-color: transparent;
 margin: 2px;
 border: 1px solid #fff;
 transition: 0.5s ease;
+@media (max-width: 620px) {
+    font-size: 0.7rem;
+    width: 90%;
+  }
 :hover {
   background-color: #fff;
   color: #141414;
+}
+:active {
+  background-color: #bbb;
+  border: 1px solid #bbb;
+  transition: 0.1s ease;
 }
 `
 
@@ -101,4 +118,35 @@ transition: .5 ease;
 :hover {
   color: #fff;
 }
+`
+
+export const LogoTitle = styled.h1 `
+white-space: nowrap;
+font-size: 2rem;
+user-select: none;
+padding: 2px 8px;
+cursor: pointer;
+border-radius: 12px;
+transition: 0.5s ease;
+:hover {
+  background-color: #fff;
+  color: #000;
+}
+:active {
+  background-color: #bbb;
+  transition: 0.1s ease;
+}
+`
+
+export const LoadingGif = styled.img `
+width: 100px;
+margin: 0 auto;
+`
+
+export const LoadingContainer = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 100%;
 `

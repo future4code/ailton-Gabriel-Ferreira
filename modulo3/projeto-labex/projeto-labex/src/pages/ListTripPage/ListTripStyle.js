@@ -20,6 +20,8 @@ export const Container = styled.section`
   gap: 8px;
   padding: 64px 12px 12px 12px;
   overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  border-bottom: 1px solid #bbb;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -42,3 +44,8 @@ export const PageBg = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
 `;
+
+export const EmptyArrayMessageDiv=styled.div`
+height: 350px;
+background-color: lime;
+`

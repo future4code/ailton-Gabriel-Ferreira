@@ -1,58 +1,49 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { PageBg } from "../ListTripPage/ListTripStyle";
 import { LoginDiv, Container } from "./LoginPageStyle";
-import { Header, HeaderButton } from "../../styles/GlobalStyle";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
 import { baseUrl } from "../../constants/Urls";
+import HeaderComp from "../Header/HeaderComp";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
-
-  const goToHomePage = () => {
-    navigate("/");
-  };
-
-  const goToListTripPage = () => {
-    navigate("/trips/list");
-  };
-
-  const goToLoginPage = () => {
-    navigate("/login");
-  };
-
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
+    setEmail(e.target.value);
+  };
 
   const handlePassword = (e) => {
-    setPassword(e.target.value)
+    setPassword(e.target.value);
+  };
+
+  const takeData = useLogin(`${baseUrl}/login`, email, password);
+  const makeLogin = (e) => {
+    e.preventDefault()
+    takeData()
   }
-  
-  const takeData = useLogin(`${baseUrl}/login`, email, password)
 
   return (
     <PageBg>
-      <Header>
-        <div>
-          <h1 onClick={goToHomePage}>Labe-X</h1>
-        </div>
-        <div>
-          <HeaderButton onClick={goToListTripPage}>Viagens</HeaderButton>
-          <HeaderButton>Candidatar-se</HeaderButton>
-        </div>
-        <div>
-          <button onClick={goToLoginPage}>Login</button>
-        </div>
-      </Header>
+      <HeaderComp />
       <Container>
         <LoginDiv>
-          <input placeholder="Email" value={email} onChange={handleEmail}></input>
-          <input placeholder="Senha" value={password} onChange={handlePassword}></input>
-          <button onClick={takeData}>Logar</button>
+          <h3>Fazer Login</h3>
+          <form onSubmit={makeLogin}>
+            <input
+              placeholder="Email"
+              value={email}
+              onChange={handleEmail}
+            ></input>
+            <input
+              placeholder="Senha"
+              type={"password"}
+              value={password}
+              onChange={handlePassword}
+            ></input>
+            <button>Fazer Login</button>
+          </form>
         </LoginDiv>
       </Container>
     </PageBg>
