@@ -25,7 +25,7 @@ display: flex;
 justify-content: center;
 width: 20%;
 min-width: 320px;
-height: 50%;
+height: fit-content;
 padding: 12px;
 background-color: rgba(0,0,0,0.8);
 border: 1px solid #fff;
@@ -38,4 +38,5 @@ height: 100vh;
 display: flex;
 align-items: center;
 justify-content: center;
+flex-direction: column;
 `

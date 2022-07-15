@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
+    overflow-y: overlay;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -149,4 +150,20 @@ align-items: center;
 justify-content: center;
 width: 100%;
 height: 100%;
+`
+
+export const BackButton = styled.button`
+color: #fff;
+border: 1px solid #fff;
+border-radius: 8px;
+background-color: transparent;
+width: 10%;
+font-size: 1rem;
+margin: 4px;
+transition: .2s ease;
+cursor: pointer;
+:hover {
+  color: #000;
+  background-color: #fff;
+}
 `

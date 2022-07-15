@@ -72,7 +72,7 @@ const navigate = useNavigate();
             pacotes
           </p>
           <ButtonsMiniDiv>
-            <ViewMoreButton >Agendar viagem</ViewMoreButton>
+            <ViewMoreButton onClick={()=>goToPage(navigate, '/trips/application')}>Agendar viagem</ViewMoreButton>
             <ViewMoreButton onClick={()=>goToPage(navigate, '/trips/list')}>Conhecer pacotes</ViewMoreButton>
           </ButtonsMiniDiv>
         </div>

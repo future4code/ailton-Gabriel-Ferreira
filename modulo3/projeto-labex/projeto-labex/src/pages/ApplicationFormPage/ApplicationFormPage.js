@@ -10,11 +10,15 @@ import {
 import { useRequestData } from "../../hooks/useRequestData";
 import { baseUrl } from "../../constants/Urls";
 import useForm from "../../hooks/useForm";
-import { useApplyToTrip } from "../../hooks/useApplyToTrip";
 import axios from "axios";
+import { BackButton } from "../../styles/GlobalStyle";
+import { useNavigate } from "react-router-dom";
+import { goToPage } from "../../routes/coordinator";
 
 const ApplicationFormPage = () => {
+  const navigate = useNavigate();
   const [id, setId] = useState("");
+  const [country, setCountry] = useState([]);
   const trips = useRequestData(`${baseUrl}/trips`);
   const { form, onChange } = useForm({
     name: "",
@@ -56,6 +60,7 @@ const ApplicationFormPage = () => {
       <PageBg>
         <HeaderComp />
         <Centralizer>
+          <h1>Inscrever-se</h1>
           <Container>
             <ApplicationForm onSubmit={prevent}>
               <input
@@ -103,6 +108,9 @@ const ApplicationFormPage = () => {
               <button onClick={applyToTrip}>Enviar</button>
             </ApplicationForm>
           </Container>
+          <BackButton onClick={() => goToPage(navigate, "/")}>
+            Voltar
+          </BackButton>
         </Centralizer>
       </PageBg>
     </>

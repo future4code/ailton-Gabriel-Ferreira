@@ -10,7 +10,7 @@ export const useRequestData = (url) => {
         const res = await axios.get(url);
         setData(res.data.trips);
       } catch (err) {
-        console.log(err);
+        alert.log(err);
       }
     };
     takeData();

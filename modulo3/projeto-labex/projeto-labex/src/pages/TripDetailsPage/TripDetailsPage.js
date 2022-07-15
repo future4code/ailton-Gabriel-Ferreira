@@ -14,7 +14,7 @@ import {
   MoreDetailCard,
   PlanetDetails,
 } from "./TripDetailsPageStyle";
-import { LoadingContainer, LoadingGif } from "../../styles/GlobalStyle";
+import { BackButton, LoadingContainer, LoadingGif } from "../../styles/GlobalStyle";
 import { goToPage } from "../../routes/coordinator";
 
 const TripDetailsPage = () => {
@@ -32,7 +32,7 @@ const TripDetailsPage = () => {
         goToPage(navigate, "/adminPanel");
       })
       .catch((err) => {
-        console.log(err);
+        alert(err);
       });
   };
 
@@ -44,7 +44,7 @@ const TripDetailsPage = () => {
     <PageBg>
       <HeaderComp />
       <Centralizer>
-        {console.log(trip)}
+      <h1>Detalhes</h1>
         {trip !== undefined ? (
           <MoreDetailCard>
             <h3>Detalhes da viagem</h3>
@@ -61,7 +61,7 @@ const TripDetailsPage = () => {
                 const { age, applicationText, country, id, name, profession } =
                   data;
                 return (
-                  <CandidateDetails>
+                  <CandidateDetails key={id}>
                     <p>{`Idade: ${age}`}</p>
                     <p>{`Nome: ${name}`}</p>
                     <p>{`Profissão: ${profession}`}</p>
@@ -102,6 +102,7 @@ const TripDetailsPage = () => {
             </LoadingContainer>
           </MoreDetailCard>
         )}
+        <BackButton onClick={()=>goToPage(navigate, "/adminPanel")}>Voltar</BackButton>
       </Centralizer>
     </PageBg>
   );

@@ -6,20 +6,39 @@ import { baseUrl } from "../../constants/Urls";
 import { Centralizer, DetailCard, DetailContainer } from "./AdminHomePageStyle";
 import { useNavigate } from "react-router-dom";
 import { goToPage } from "../../routes/coordinator";
+import {
+  BackButton,
+  LoadingContainer,
+  LoadingGif,
+} from "../../styles/GlobalStyle";
 
 const AdminHomePage = () => {
   const trips = useRequestData(`${baseUrl}/trips`);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <PageBg>
       <HeaderComp />
       <Centralizer>
+        <h1>Viagens</h1>
         <DetailContainer>
+          {trips === undefined && (
+            <LoadingContainer>
+              <LoadingGif
+                src={
+                  "https://cutewallpaper.org/21/loading-gif-transparent-background/2-Methods-to-Recover-an-Unsaved-PowerPoint-File.gif"
+                }
+              />
+            </LoadingContainer>
+          )}
           {trips?.map((data) => {
             const { id, name, date, description, durationInDays, planet } =
               data;
             return (
-              <DetailCard id={id} onClick={()=>goToPage(navigate, `/adminPanel/details/${id}`)}>
+              <DetailCard
+                key={id}
+                id={id}
+                onClick={() => goToPage(navigate, `/adminPanel/details/${id}`)}
+              >
                 <p>{`Nome: ${name}`}</p>
                 <p>{`Descrição: ${description}`}</p>
                 <p>{`Planeta: ${planet}`}</p>
@@ -29,6 +48,7 @@ const AdminHomePage = () => {
             );
           })}
         </DetailContainer>
+        <BackButton onClick={() => goToPage(navigate, `/`)}>Voltar</BackButton>
       </Centralizer>
     </PageBg>
   );

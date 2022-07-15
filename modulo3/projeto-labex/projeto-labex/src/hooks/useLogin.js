@@ -14,10 +14,9 @@ export const useLogin = (url, emailParam, passwordParam) => {
     try {
       const res = await axios.post(url, body);
       window.localStorage.setItem("token", res.data.token)
-      console.log(res);
       goToAdminHomePage();
     } catch (err) {
-      console.log(err);
+      alert.log(err);
     }
   };
 

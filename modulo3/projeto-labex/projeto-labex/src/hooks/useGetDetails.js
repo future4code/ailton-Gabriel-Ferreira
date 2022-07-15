@@ -8,9 +8,8 @@ export const useGetDetails = (url, token) => {
       try {
         const res = await axios.get(url, {headers: {auth: token}});
         setData(res.data.trip);
-        console.log(res.data.trip)
       } catch (err) {
-        console.log(err);
+        alert.log(err);
       }
     };
     takeData();
