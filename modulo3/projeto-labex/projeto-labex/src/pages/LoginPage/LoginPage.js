@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { PageBg } from "../ListTripPage/ListTripStyle";
-import { LoginDiv, Container } from "./LoginPageStyle";
+import { LoginDiv, Container, LoginForm } from "./LoginPageStyle";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../hooks/useLogin";
 import { baseUrl } from "../../constants/Urls";
@@ -30,20 +30,23 @@ const LoginPage = () => {
       <Container>
         <LoginDiv>
           <h3>Fazer Login</h3>
-          <form onSubmit={makeLogin}>
+          <LoginForm onSubmit={makeLogin}>
             <input
               placeholder="Email"
+              type={"email"}
               value={email}
               onChange={handleEmail}
+              required
             ></input>
             <input
               placeholder="Senha"
               type={"password"}
               value={password}
               onChange={handlePassword}
+              required
             ></input>
             <button>Fazer Login</button>
-          </form>
+          </LoginForm>
         </LoginDiv>
       </Container>
     </PageBg>

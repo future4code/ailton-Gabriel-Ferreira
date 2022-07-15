@@ -19,3 +19,12 @@ align-items: center;
 width: 100%;
 height: 100vh;
 `
+
+export const LoginForm = styled.form `
+display: flex;
+flex-direction: column;
+width: 100%;
+>input {
+    width: 100%;
+}
+`

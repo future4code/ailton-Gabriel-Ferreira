@@ -9,7 +9,6 @@ import { MediumIconRoundBorder } from "../../styles/GlobalStyle";
 import { Card, Container, EmptyArrayMessageDiv, LeftRightButtonDiv, PageBg } from "./ListTripStyle";
 import { useRequestData } from "../../hooks/useRequestData";
 import { baseUrl } from "../../constants/Urls";
-import { useNavigate } from "react-router-dom";
 import HeaderComp from "../Header/HeaderComp";
 
 const ListTripsPage = () => {
