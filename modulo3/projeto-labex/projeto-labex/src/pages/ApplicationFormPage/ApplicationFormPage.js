@@ -60,7 +60,7 @@ const ApplicationFormPage = () => {
       <PageBg>
         <HeaderComp />
         <Centralizer>
-          <h1>Inscrever-se</h1>
+          <h2>Inscrever-se</h2>
           <Container>
             <ApplicationForm onSubmit={prevent}>
               <input

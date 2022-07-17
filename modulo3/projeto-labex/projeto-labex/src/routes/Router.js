@@ -6,6 +6,7 @@ import ApplicationFormPage from "../pages/ApplicationFormPage/ApplicationFormPag
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import TripDetailPage from "../pages/TripDetailsPage/TripDetailsPage"
+import CreateTripPage from "../pages/CreateTripPage/CreateTripPage"
 
 const Router = () => {
   return (
@@ -17,6 +18,7 @@ const Router = () => {
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/adminPanel" element={<AdminHomePage/>} />
         <Route exact path="/adminPanel/details/:id" element={<TripDetailPage/>} />
+        <Route exact path="/adminPanel/createTrippage" element = {<CreateTripPage/>} /> 
       </Routes>
     </BrowserRouter>
   );

@@ -3,7 +3,7 @@ import HeaderComp from "../Header/HeaderComp";
 import { PageBg } from "../ListTripPage/ListTripStyle";
 import { useRequestData } from "../../hooks/useRequestData";
 import { baseUrl } from "../../constants/Urls";
-import { Centralizer, DetailCard, DetailContainer } from "./AdminHomePageStyle";
+import { Centralizer, DetailCard, DetailContainer, NewTripDiv } from "./AdminHomePageStyle";
 import { useNavigate } from "react-router-dom";
 import { goToPage } from "../../routes/coordinator";
 import {
@@ -19,7 +19,10 @@ const AdminHomePage = () => {
     <PageBg>
       <HeaderComp />
       <Centralizer>
-        <h1>Viagens</h1>
+        <NewTripDiv>
+          <h1>Viagens</h1>
+          <BackButton onClick={()=> goToPage(navigate, `/adminPanel/createTrippage`)}>Criar nova viagem</BackButton>
+        </NewTripDiv>
         <DetailContainer>
           {trips === undefined && (
             <LoadingContainer>

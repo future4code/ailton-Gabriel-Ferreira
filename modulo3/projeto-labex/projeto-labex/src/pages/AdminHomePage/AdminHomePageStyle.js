@@ -37,3 +37,10 @@ align-items: center;
 width: 100%;
 height: 100%;
 `
+
+export const NewTripDiv = styled.div`
+display: flex;
+width: 85%;
+align-items: center;
+justify-content: space-between;
+`

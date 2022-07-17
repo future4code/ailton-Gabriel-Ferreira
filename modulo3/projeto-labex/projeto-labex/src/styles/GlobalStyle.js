@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
-    overflow-y: overlay;
+    /* overflow-y: hidden; */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
