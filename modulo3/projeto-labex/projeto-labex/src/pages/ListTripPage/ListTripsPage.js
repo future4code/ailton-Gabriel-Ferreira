@@ -32,13 +32,15 @@ const ListTripsPage = () => {
       {trips !== undefined && trips !== [] && (
         <Container ref={carousel}>
           {trips?.map((data) => {
-            const { id, name, planet, description } = data;
+            const { id, name, planet, description, durationInDays } = data;
             return (
               <Card key={id}>
+                {console.log(data)}
                 <MediumIconRoundBorder src={AstronautOk} />
                 <p>Nome: {name}</p>
                 <p>Planeta: {planet}</p>
                 <p>Descrição: {description}</p>
+                <p>Duração (em dias): {durationInDays}</p>
               </Card>
             );
           })}

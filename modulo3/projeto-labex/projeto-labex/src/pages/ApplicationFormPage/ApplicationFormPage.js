@@ -62,40 +62,52 @@ const ApplicationFormPage = () => {
         <Centralizer>
           <h2>Inscrever-se</h2>
           <Container>
-            <ApplicationForm onSubmit={prevent}>
+            <ApplicationForm onSubmit={applyToTrip}>
               <input
                 placeholder="Nome"
                 value={form.name}
                 name={"name"}
                 onChange={onChange}
+                required
               />
               <input
                 placeholder="Idade"
                 value={form.age}
                 name={"age"}
                 onChange={onChange}
+                required
+
               />
               <input
                 placeholder="Profissao"
                 value={form.profession}
                 name={"profession"}
                 onChange={onChange}
+                required
               />
               <input
                 placeholder="Texto de aplicação"
                 value={form.applicationText}
                 name={"applicationText"}
                 onChange={onChange}
+                required
               />
               <input
                 placeholder="Pais"
                 value={form.country}
                 name={"country"}
                 onChange={onChange}
+                required
               />
+              {console.log(trips)}
+              {trips === undefined && 
+              <select>
+                <option>Escolha uma opção de viagem</option>
+              </select>
+              }
               {trips && (
                 <select onChange={selectedId}>
-                  <option>--- Escolha uma opção de viagem ---</option>
+                  <option>Escolha uma opção de viagem</option>
                   {trips.map((data) => {
                     return (
                       <option key={data.id} value={data.id}>
@@ -105,7 +117,7 @@ const ApplicationFormPage = () => {
                   })}
                 </select>
               )}
-              <button onClick={applyToTrip}>Enviar</button>
+              <button>Enviar</button>
             </ApplicationForm>
           </Container>
           <BackButton onClick={() => goToPage(navigate, "/")}>
