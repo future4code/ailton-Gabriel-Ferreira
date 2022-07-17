@@ -14,6 +14,7 @@ import axios from "axios";
 import { BackButton } from "../../styles/GlobalStyle";
 import { useNavigate } from "react-router-dom";
 import { goToPage } from "../../routes/coordinator";
+import { listCountries } from "../../constants/listCountries";
 
 const ApplicationFormPage = () => {
   const navigate = useNavigate();
@@ -76,7 +77,6 @@ const ApplicationFormPage = () => {
                 name={"age"}
                 onChange={onChange}
                 required
-
               />
               <input
                 placeholder="Profissao"
@@ -92,19 +92,28 @@ const ApplicationFormPage = () => {
                 onChange={onChange}
                 required
               />
-              <input
-                placeholder="Pais"
-                value={form.country}
-                name={"country"}
-                onChange={onChange}
-                required
-              />
-              {console.log(trips)}
-              {trips === undefined && 
-              <select>
-                <option>Escolha uma opção de viagem</option>
+              <select
+              value={form.country}
+              defaultValue={"default"}
+              name={"country"}
+              onChange={onChange}
+              required
+              >
+                <option value={'default'}>Escolha seu Pais</option>
+                {listCountries.map((data) => {
+                  return (
+                    <option key={data} value={data}>
+                      {data}
+                    </option>
+                  );
+                })}
               </select>
-              }
+              {console.log(trips)}
+              {trips === undefined && (
+                <select>
+                  <option>Escolha uma opção de viagem</option>
+                </select>
+              )}
               {trips && (
                 <select onChange={selectedId}>
                   <option>Escolha uma opção de viagem</option>
