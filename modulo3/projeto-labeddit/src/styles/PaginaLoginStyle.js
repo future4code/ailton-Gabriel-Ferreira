@@ -26,5 +26,18 @@ export const ContainerInputs = styled.div`
   margin-top: 106px;
   display: flex;
   flex-direction: column;
-  background-color: red;
 `;
+
+export const ContainerBotoes = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+gap: 18px;
+`
+
+export const Linha = styled.hr`
+width: 85%;
+border: 1px solid #F9B24E;
+
+`

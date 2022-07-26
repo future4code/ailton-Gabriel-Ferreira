@@ -1,10 +1,16 @@
 import React from "react";
-export const Input = ({placeholder, type, name, value, onChange}) => {
-  return <input
-  placeholder={placeholder}
-  type={type}
-  name={name}
-  value={value}
-  onChange={onChange}
-/>
+import { Container } from "./InputStyle";
+export const Input = ({ type, name, value, onChange, label }) => {
+  return (
+    <Container>
+      <input
+      required
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
+      <label>{label}</label>
+    </Container>
+  );
 };

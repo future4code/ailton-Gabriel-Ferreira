@@ -35,15 +35,17 @@ export const LogoImg = styled.img`
   width: 84px;
 `;
 
-export const LogoDiv = styled.div`
-display: grid;
-width: ${props=> props.tamanho};
-height: 84px;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr 1fr;
+export const Formulario = styled.form`
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-bottom: 44px;
 `
 
-export const LogoPedaco = styled.div`
-background-color: ${props=> props.cor};
-border-radius: ${props=> props.direcao};
+export const BotaoNav = styled.button`
+background: none;
+border: none;
+color: #4088CB;
+font-size: 1rem;
+font-weight: 600;
 `
