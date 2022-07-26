@@ -37,7 +37,7 @@ export const LogoImg = styled.img`
 
 export const LogoDiv = styled.div`
 display: grid;
-width: 84px;
+width: ${props=> props.tamanho};
 height: 84px;
 grid-template-columns: 1fr 1fr;
 grid-template-rows: 1fr 1fr;
