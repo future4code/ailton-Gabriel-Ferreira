@@ -34,3 +34,16 @@ export const Botao = styled.button`
 export const LogoImg = styled.img`
   width: 84px;
 `;
+
+export const LogoDiv = styled.div`
+display: grid;
+width: 84px;
+height: 84px;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+`
+
+export const LogoPedaco = styled.div`
+background-color: ${props=> props.cor};
+border-radius: ${props=> props.direcao};
+`
