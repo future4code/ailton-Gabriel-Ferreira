@@ -13,11 +13,12 @@ export const GlobalStyle = createGlobalStyle`
 export const Titulo = styled.h1`
   font-size: ${(props) => props.tamanho};
   font-weight: 700;
-  color: #141414;
+  color: #373737;
 `;
 
 export const Texto = styled.p`
   font-size: ${(props) => props.tamanho};
+  color: #000;
 `;
 
 export const Botao = styled.button`
@@ -28,4 +29,8 @@ export const Botao = styled.button`
   border-radius: ${(props) => props.bordaRaio};
   width: 85%;
   height: 50px;
+`;
+
+export const LogoImg = styled.img`
+  width: 84px;
 `;

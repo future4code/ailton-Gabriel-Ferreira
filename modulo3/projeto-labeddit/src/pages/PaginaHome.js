@@ -1,19 +1,21 @@
 import React from "react";
 import {
   Container,
-  LogoImg,
   LogoContainer,
   ContainerTexto,
   ContainerBotao,
 } from "../styles/PaginaHomeStyle";
-import { Botao, Texto, Titulo } from "../global/GlobalStyle";
+import { Botao, Texto, Titulo, LogoImg } from "../global/GlobalStyle";
+import { useNavigate } from "react-router-dom";
+import { goToLogin } from "../routes/coordinator";
 import Logo from "../images/labenu-logo.png";
 
 export const PaginaHome = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <LogoContainer>
-        <LogoImg src={Logo} />
+        <LogoImg src={Logo} alt="logo" />
       </LogoContainer>
       <ContainerTexto>
         <Titulo tamanho={"2rem"}>LabEddit</Titulo>
@@ -25,6 +27,7 @@ export const PaginaHome = () => {
           bordaRaio={"28px"}
           cor={"#fff"}
           gradiente={"linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)"}
+          onClick={() => goToLogin(navigate)}
         >
           Entrar
         </Botao>
