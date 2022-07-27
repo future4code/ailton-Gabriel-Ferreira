@@ -7,7 +7,7 @@ export const goToFeed = (navigate) => {
 }
 
 export const goToHome = (navigate) => {
-    navigate('/home')
+    navigate('/')
 }
 
 export const goToPost = (navigate) => {

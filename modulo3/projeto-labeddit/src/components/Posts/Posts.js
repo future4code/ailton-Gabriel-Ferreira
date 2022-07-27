@@ -13,8 +13,12 @@ import {
 import SetaCima from "../../images/seta-cima.png";
 import SetaBaixo from "../../images/seta-baixo.png";
 import BalaoComentario from "../../images/balao-comentario.png";
+import axios from "axios";
+import { base_url } from "../../constants/constants";
 
-export const Posts = ({ dados }) => {
+export const Posts = (props) => {
+  const token = localStorage.getItem("token");
+  const {contador, setContador} = props.contador
   const {
     body,
     commentCount,
@@ -25,10 +29,25 @@ export const Posts = ({ dados }) => {
     userVote,
     username,
     voteSum,
-  } = dados;
+  } = props.dados;
+  const votar = (dir, id) => {
+    const direction = {
+      direction: dir,
+    };
+    axios
+      .post(`${base_url}/posts/${id}/votes`, direction, {
+        headers: { authorization: token },
+      })
+      .then((res) => {
+        setContador(contador+1)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <ContainerPosts>
-      {dados.map(({ username, title, id, voteSum, commentCount, body }) => {
+      {props.dados.map(({ username, title, id, voteSum, commentCount, body }) => {
         return (
           <Card key={id}>
             <Usuario>{`Enviado por ${username}`}</Usuario>
@@ -40,9 +59,19 @@ export const Posts = ({ dados }) => {
             )}
             <ContainerNumeros>
               <ContainerIcones>
-                <Icone src={SetaCima} alt="Seta cima" ajuste={"0px"} />
+                <Icone
+                  src={SetaCima}
+                  alt="Seta cima"
+                  ajuste={"0px"}
+                  onClick={() => votar(1,id)}
+                />
                 {voteSum === null ? <Count>0</Count> : <Count>{voteSum}</Count>}
-                <Icone src={SetaBaixo} alt="Seta Baixo" ajuste={"3px"} />
+                <Icone
+                  src={SetaBaixo}
+                  alt="Seta Baixo"
+                  ajuste={"3px"}
+                  onClick={() => votar(-1,id)}
+                />
               </ContainerIcones>
               <ContainerIcones>
                 <Icone

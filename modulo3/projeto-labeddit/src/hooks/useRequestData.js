@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export const useRequestData = (url, token) => {
+export const useRequestData = (url, token, contador) => {
   const [post, setPost] = useState([]);
   useEffect(() => {
     axios
@@ -11,6 +11,6 @@ export const useRequestData = (url, token) => {
         alert("Algo deu errado");
         console.log(err);
       });
-  }, []);
+  }, [contador]);
   return post;
 };

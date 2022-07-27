@@ -17,7 +17,7 @@ export const ContainerInputs = styled.div`
 export const Linha = styled.div`
   background: linear-gradient(90deg, #ff6489 0%, #f9b24e 100%), #4088cb;
   width: 85%;
-  height: 2px;
+  height: 1px;
 `;
 
 export const CaixaDeTexto = styled.textarea`
@@ -26,8 +26,19 @@ export const CaixaDeTexto = styled.textarea`
   background: #ededed;
   border: none;
   outline: none;
-  border-radius: 12px;
-  padding: ${props=> props.distanciamento}
+  border-radius: ${props=> props.bordaRaio};
+  padding: ${props=> props.distanciamento};
+  overflow: ${props=> props.overflow};
+  resize: none;
+  :focus ~ label {
+      transition: 0.25s ease;
+      font-size: 0rem;
+      opacity: 0;
+    }
+    :valid ~ label {
+      font-size: 0rem;
+      opacity: 0;
+    }
 `;
 
 export const InputELabel = styled.div`

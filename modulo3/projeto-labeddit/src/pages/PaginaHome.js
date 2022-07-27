@@ -28,6 +28,7 @@ export const PaginaHome = () => {
           cor={"#fff"}
           gradiente={"linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)"}
           onClick={() => goToLogin(navigate)}
+          tamanho={"85%"}
         >
           Entrar
         </Botao>
