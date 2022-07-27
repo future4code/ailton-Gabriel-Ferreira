@@ -49,3 +49,20 @@ color: #4088CB;
 font-size: 1rem;
 font-weight: 600;
 `
+
+export const Barra = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #ededed;
+  margin-bottom: 30px;
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 33%;
+  }
+`;

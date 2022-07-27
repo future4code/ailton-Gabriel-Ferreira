@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Barra,
   Chamada,
   Container,
   ContainerBotao,
@@ -9,15 +8,28 @@ import {
   ContainerTermos,
   Texto,
 } from "../styles/PaginaCadastroStyle";
-import { LabenuLogo } from "../components/LabenuLogo/LabenuLogo";
-import { Botao, BotaoNav, Formulario } from "../global/GlobalStyle";
-import { Input } from "../components/Input/Input";
-import useForm from "../hooks/useForm";
-import {goToLogin} from '../routes/coordinator'
+import { Botao, BotaoNav, Formulario, Barra } from "../global/GlobalStyle";
+import { goToFeed, goToLogin } from "../routes/coordinator";
 import { useNavigate } from "react-router-dom";
+import { LabenuLogo } from "../components/LabenuLogo/LabenuLogo";
+import { base_url } from "../constants/constants";
+import { Input } from "../components/Input/Input";
+import axios from "axios";
+import useForm from "../hooks/useForm";
 
 export const PaginaCadastro = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const cadastrar = () => {
+    axios
+      .post(`${base_url}/users/signup`, form)
+      .then((res) => {
+        goToFeed(navigate);
+        localStorage.setItem("token", res.data.token);
+      })
+      .catch((err) => {
+        alert("Algo deu errado, tente novamente");
+      });
+  };
   const { form, onChange, cleanFields } = useForm({
     username: "",
     email: "",
@@ -26,18 +38,16 @@ export const PaginaCadastro = () => {
   return (
     <Container>
       <Barra>
-        <div>
-        </div>
+        <div></div>
         <div>
           <LabenuLogo tamanho={"28px"} />
         </div>
         <div>
-          <BotaoNav onClick={()=> goToLogin(navigate)}>Entrar</BotaoNav>
+          <BotaoNav onClick={() => goToLogin(navigate)}>Entrar</BotaoNav>
         </div>
       </Barra>
       <Chamada>Olá, boas vindas ao LabEddit ;)</Chamada>
       <Formulario>
-        {console.log(form)}
         <Input
           type={"text"}
           name="username"
@@ -53,8 +63,8 @@ export const PaginaCadastro = () => {
           label={"E-mail"}
         />
         <Input
-          type={"passwordt"}
-          name="passwordl"
+          type={"password"}
+          name="password"
           value={form.password}
           onChange={onChange}
           label={"Senha"}
@@ -88,6 +98,7 @@ export const PaginaCadastro = () => {
           bordaRaio={"28px"}
           cor={"#fff"}
           gradiente={"linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)"}
+          onClick={cadastrar}
         >
           Cadastrar
         </Botao>

@@ -1,9 +1,4 @@
-import {
-  Botao,
-  Texto,
-  Titulo,
-  Formulario
-} from "../global/GlobalStyle";
+import { Botao, Texto, Titulo, Formulario } from "../global/GlobalStyle";
 import { goToCadastro, goToFeed } from "../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import {
@@ -17,18 +12,36 @@ import {
 import { Input } from "../components/Input/Input";
 import useForm from "../hooks/useForm";
 import { LabenuLogo } from "../components/LabenuLogo/LabenuLogo";
+import axios from "axios";
+import { base_url } from "../constants/constants";
+import { useEffect } from "react";
 
 export const PaginaLogin = () => {
+  const navigate = useNavigate();
   const { form, onChange, cleanFields } = useForm({ email: "", password: "" });
+  const logar = () => {
+    axios
+      .post(`${base_url}/users/login`, form)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        goToFeed(navigate);
+      })
+      .catch((err) => {
+        alert("Algo deu errado, tente novamente");
+      });
+  };
   const login = (event) => {
-    console.log("foi");
     event.preventDefault();
   };
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("token") !== null) {
+      goToFeed(navigate);
+    }
+  }, []);
   return (
     <Container>
       <ContainerImagem>
-        <LabenuLogo tamanho={"84px"}/>        
+        <LabenuLogo tamanho={"84px"} />
       </ContainerImagem>
       <ContainerTextos>
         <Titulo tamanho={"2rem"}>LabEddit</Titulo>
@@ -58,11 +71,11 @@ export const PaginaLogin = () => {
           bordaRaio={"28px"}
           cor={"#fff"}
           gradiente={"linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)"}
-          onClick={() => goToFeed(navigate)}
+          onClick={logar}
         >
           Continuar
         </Botao>
-        <Linha/>
+        <Linha />
         <Botao
           borda={"2px solid #F9B24E"}
           bordaRaio={"28px"}
