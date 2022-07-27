@@ -72,6 +72,7 @@ export const PaginaLogin = () => {
           cor={"#fff"}
           gradiente={"linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)"}
           onClick={logar}
+          tamanho={"85%"}
         >
           Continuar
         </Botao>
@@ -82,6 +83,7 @@ export const PaginaLogin = () => {
           cor={"#F9B24E"}
           gradiente={"#fff"}
           onClick={() => goToCadastro(navigate)}
+          tamanho={"85%"}
         >
           Crie uma conta
         </Botao>

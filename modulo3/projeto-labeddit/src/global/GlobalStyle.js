@@ -27,7 +27,7 @@ export const Botao = styled.button`
   background: ${(props) => props.gradiente};
   border: ${(props) => props.borda};
   border-radius: ${(props) => props.bordaRaio};
-  width: 85%;
+  width: ${props=> props.tamanho};
   height: 50px;
 `;
 

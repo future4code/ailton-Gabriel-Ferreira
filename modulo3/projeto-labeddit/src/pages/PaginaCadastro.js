@@ -99,6 +99,7 @@ export const PaginaCadastro = () => {
           cor={"#fff"}
           gradiente={"linear-gradient(90deg, #FF6489 0%, #F9B24E 100%)"}
           onClick={cadastrar}
+          tamanho={"85%"}
         >
           Cadastrar
         </Botao>
