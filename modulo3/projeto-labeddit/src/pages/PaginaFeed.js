@@ -19,20 +19,25 @@ import { useNavigate } from "react-router-dom";
 
 export const PaginaFeed = () => {
   const [contador, setContador] = useState(0);
-  const dadosProps = {contador, setContador}
+  const dadosProps = { contador, setContador };
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const { form, onChange, cleanFields } = useForm({
     title: "",
     body: "",
   });
-  const posts = useRequestData(`${base_url}/posts`, token, contador);
+  const { post, loading } = useRequestData(
+    `${base_url}/posts`,
+    token,
+    contador
+  );
   const criarPost = () => {
     axios
       .post(`${base_url}/posts`, form, { headers: { authorization: token } })
       .then((res) => {
-        setContador(contador+1)
+        setContador(contador + 1);
         console.log(res);
+        cleanFields()
       })
       .catch((err) => {
         console.log(err);
@@ -95,7 +100,11 @@ export const PaginaFeed = () => {
         </Botao>
         <Linha />
       </ContainerInputs>
-      <Posts dados={posts} contador={dadosProps}/>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <Posts dados={post} contador={dadosProps} />
+      )}
     </Container>
   );
 };
