@@ -15,8 +15,11 @@ import SetaBaixo from "../../images/seta-baixo.png";
 import BalaoComentario from "../../images/balao-comentario.png";
 import axios from "axios";
 import { base_url } from "../../constants/constants";
+import { useNavigate } from "react-router-dom";
+import { goToPost } from "../../routes/coordinator";
 
 export const Posts = (props) => {
+  const navigate = useNavigate()
   const token = localStorage.getItem("token");
   const { contador, setContador } = props.contador;
   const [curtido, setCurtido] = useState(false);
@@ -63,6 +66,7 @@ export const Posts = (props) => {
         headers: { authorization: token },
       })
       .then((res) => {
+        goToPost(navigate)
         setComentario(res.data);
       })
       .catch((err) => {
@@ -90,7 +94,7 @@ export const Posts = (props) => {
                       alt="Seta cima"
                       ajuste={"0px"}
                       onClick={() => desvotar(id)}
-                      color={"red"}
+                      color={"#141414"}
                     />
                   ) : (
                     <Icone
@@ -111,7 +115,7 @@ export const Posts = (props) => {
                       alt="Seta Baixo"
                       ajuste={"2px"}
                       onClick={() => desvotar(id)}
-                      color={"red"}
+                      color={"#141414"}
                     />
                   ) : (
                     <Icone

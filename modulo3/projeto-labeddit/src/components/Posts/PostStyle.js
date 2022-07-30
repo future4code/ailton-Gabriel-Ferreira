@@ -49,6 +49,7 @@ export const Icone = styled.img`
   width: 14px;
   padding-top: ${(props) => props.ajuste};
   background-color: ${props=> props.color};
+  border-radius: 100%;
 `;
 
 export const ContainerNumeros = styled.div`
