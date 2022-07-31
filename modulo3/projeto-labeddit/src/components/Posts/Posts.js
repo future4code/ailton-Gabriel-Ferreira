@@ -17,14 +17,16 @@ import axios from "axios";
 import { base_url } from "../../constants/constants";
 import { useNavigate } from "react-router-dom";
 import { goToPost } from "../../routes/coordinator";
+import { useContext } from "react";
+import { Context } from "../../global/Context";
 
 export const Posts = (props) => {
   const navigate = useNavigate()
   const token = localStorage.getItem("token");
   const { contador, setContador } = props.contador;
   const [curtido, setCurtido] = useState(false);
-  const [comentario, setComentario] = useState({});
   const [postCurtido, setPostCurtido] = useState([]);
+  const {comentario, setComentario} = useContext(Context)
   const votar = (dir, id, votepar) => {
     const direction = {
       direction: dir,
