@@ -1,0 +1,25 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "ex1": "tsc && node ./build/exercicio-1/exercicio-1.js",
+    "ex2": "tsc && node ./build/exercicio-2/exercicio-2.js",
+    "ex3": "tsc && node ./build/exercicio-3/exercicio-3.js",
+    "ex4": "tsc && node ./build/exercicio-4/exercicio-4.js",
+    "ex5": "tsc && node ./build/exercicio-5/exercicio-5.js",
+    "ex6": "tsc && node ./build/exercicio-6/exercicio-6.js",
+    "ex7": "tsc && node ./build/exercicio-7/exercicio-7.js",
+    "ex8": "tsc && node ./build/exercicio-8/exercicio-8.js",
+    "ex9": "tsc && node ./build/exercicio-9/exercicio-9.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
