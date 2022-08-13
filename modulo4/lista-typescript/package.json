@@ -1,0 +1,30 @@
+{
+  "name": "lista-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "ex1": "tsc && node ./build/exercicio-1/exercicio-1.js",
+    "ex2": "tsc && node ./build/exercicio-2/exercicio-2.js",
+    "ex3": "tsc && node ./build/exercicio-3/exercicio-3.js",
+    "ex4": "tsc && node ./build/exercicio-4/exercicio-4.js",
+    "ex5": "tsc && node ./build/exercicio-5/exercicio-5.js",
+    "ex6": "tsc && node ./build/exercicio-6/exercicio-6.js",
+    "ex7": "tsc && node ./build/exercicio-7/exercicio-7.js",
+    "ex8": "tsc && node ./build/exercicio-8/exercicio-8.js",
+    "ex9": "tsc && node ./build/exercicio-9/exercicio-9.js",
+    "ex10": "tsc && node ./build/exercicio-10/exercicio-10.js",
+    "ex11": "tsc && node ./build/exercicio-11/exercicio-11.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.7.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
